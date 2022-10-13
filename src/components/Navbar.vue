@@ -1,0 +1,75 @@
+<template>
+    <div>
+        <v-app-bar app color="primary" dark>
+            <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+            <v-spacer></v-spacer>
+            <v-toolbar-title>D&D-Table</v-toolbar-title>
+            <v-spacer></v-spacer>
+            <v-btn icon @click="toggleDarkTheme()">
+                <v-icon>mdi-theme-light-dark</v-icon>
+            </v-btn>
+            <v-btn icon>
+                <v-icon>mdi-account</v-icon>
+            </v-btn>
+        </v-app-bar>
+
+            <v-navigation-drawer v-model="drawer" absolute temporary>
+            <v-list nav dense>
+                <v-list-item-group v-model="group" active-class="deep-orange--text text--darken-4">
+                <router-link to="/">
+                    <v-list-item> 
+                        <v-list-item-icon>
+                            <v-icon>mdi-home</v-icon>
+                        </v-list-item-icon>
+                        <v-list-item-content>Home</v-list-item-content>
+                    </v-list-item>  
+                </router-link>
+
+                <router-link to="/about">
+                    <v-list-item>
+                        <v-list-item-icon>
+                            <v-icon>mdi-application-braces-outline</v-icon>
+                        </v-list-item-icon>
+                        <v-list-item-content>About</v-list-item-content>
+                    </v-list-item>
+                </router-link>
+
+                <v-list-item>
+                    <v-list-item-title>My characters</v-list-item-title>
+                </v-list-item>
+
+                <v-list-item>
+                    <v-list-item-title>My weapons</v-list-item-title>
+                </v-list-item>
+                </v-list-item-group>
+            </v-list>
+        </v-navigation-drawer>
+    </div>
+</template>
+
+<script>
+  export default {
+    data: () => ({
+        drawer: false,
+        group: null,
+    }),
+
+    watch: {
+        group () {
+        this.drawer = false
+        },
+    },
+
+    methods: {
+        toggleDarkTheme() {
+            this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
+        },
+    }
+  };
+</script>
+
+<style scoped>
+    a {
+        text-decoration: none;
+    }
+</style>
