@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 1772 1772" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <rect id="Shield-1" serif:id="Shield 1" x="0" y="0" width="1771.65" height="1771.65" style="fill:none;"/>
+    <g id="Shield-11" serif:id="Shield 1">
+        <g id="Shield" transform="matrix(1.50016,0,0,1.50016,-443.055,-526.713)">
+            <g transform="matrix(1,0,0,1,13,-2.08168)">
+                <path d="M872.827,1455.43C1020.88,1397.12 1161.89,1314.32 1273.47,1129.11L1273.47,543.733C1126.75,532.56 993.358,495.628 873.827,431.918" style="fill:none;stroke:black;stroke-width:13.89px;"/>
+            </g>
+            <g transform="matrix(-1,0,0,1,1758.65,-2.08168)">
+                <path d="M872.827,1455.43C1020.88,1397.12 1161.89,1314.32 1273.47,1129.11L1273.47,543.733C1126.75,532.56 993.358,495.628 873.827,431.918" style="fill:none;stroke:black;stroke-width:13.89px;"/>
+            </g>
+        </g>
+    </g>
+</svg>

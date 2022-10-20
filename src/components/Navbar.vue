@@ -8,9 +8,6 @@
             <v-btn icon @click="toggleDarkTheme()">
                 <v-icon>mdi-theme-light-dark</v-icon>
             </v-btn>
-            <v-btn icon>
-                <v-icon>mdi-account</v-icon>
-            </v-btn>
         </v-app-bar>
 
             <v-navigation-drawer v-model="drawer" absolute temporary>
@@ -23,6 +20,42 @@
                         </v-list-item-icon>
                         <v-list-item-content>Home</v-list-item-content>
                     </v-list-item>  
+                </router-link>
+
+                <router-link to="/about">
+                    <v-list-item>
+                        <v-list-item-icon>
+                            <v-icon>mdi-eye-outline</v-icon>
+                        </v-list-item-icon>
+                        <v-list-item-content>Watch</v-list-item-content>
+                    </v-list-item>
+                </router-link>
+
+                <router-link to="/about">
+                    <v-list-item>
+                        <v-list-item-icon>
+                            <v-icon>mdi-pencil-outline</v-icon>
+                        </v-list-item-icon>
+                        <v-list-item-content>Create</v-list-item-content>
+                    </v-list-item>
+                </router-link>
+
+                <router-link to="/charactersheet">
+                    <v-list-item>
+                        <v-list-item-icon>
+                            <v-icon>mdi-account-plus-outline</v-icon>
+                        </v-list-item-icon>
+                        <v-list-item-content>Join</v-list-item-content>
+                    </v-list-item>
+                </router-link>
+
+                <router-link to="/about">
+                    <v-list-item>
+                        <v-list-item-icon>
+                            <v-icon>mdi-television</v-icon>
+                        </v-list-item-icon>
+                        <v-list-item-content>TV</v-list-item-content>
+                    </v-list-item>
                 </router-link>
 
                 <router-link to="/about">

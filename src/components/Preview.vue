@@ -1,5 +1,5 @@
 <template>
-    <router-link to="/about" tag="v-btn">
+    <router-link :to="preview.url" tag="v-btn">
         <v-btn rounded dark x-large block color="primary">
             <v-icon x-large>{{ preview.icon }}</v-icon>
             <h5>&nbsp; {{ preview.name }}</h5>
@@ -11,15 +11,13 @@
     export default {
         props: {
             preview: Object
-        }
+        },
     };
 </script>
 
 <style scoped>
     .v-btn {
         height: 150px !important;
-        /* background-image: url(./../../public/img/button-bg.jpeg);
-        background-size: 250%; */
         font-size:large;
         opacity: 0.8;
     }
