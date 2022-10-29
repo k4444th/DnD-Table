@@ -39,7 +39,7 @@ export default new Vuex.Store({
           xp: 39,
           hitdice: 37
         },
-        traits: [
+        skills: [
           {
             name: "Strength",
             modifier: "-2",
