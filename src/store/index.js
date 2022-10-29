@@ -41,33 +41,33 @@ export default new Vuex.Store({
         },
         traits: [
           {
-            name: "strength",
-            modifier: -2,
+            name: "Strength",
+            modifier: "-2",
             skill: 7
           },
           {
-            name: "dexterity",
-            modifier: +4,
+            name: "Dexterity",
+            modifier: "+4",
             skill: 18
           },
           {
-            name: "constitution",
-            modifier: +1,
+            name: "Constitution",
+            modifier: "+1",
             skill: 13
           },
           {
-            name: "intelligence",
-            modifier: 0,
+            name: "Intelligence",
+            modifier: "0",
             skill: 10
           },
           {
-            name: "wisdom",
-            modifier: +3,
+            name: "Wisdom",
+            modifier: "+3",
             skill: 16
           },
           {
-            name: "charisma",
-            modifier: +1,
+            name: "Charisma",
+            modifier: "+1",
             skill: 12
           },
         ]

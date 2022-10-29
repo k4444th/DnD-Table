@@ -1,6 +1,6 @@
 <template>
     <router-link :to="preview.url" tag="v-btn">
-        <v-btn rounded dark x-large block color="primary">
+        <v-btn rounded dark x-large block color="primary" class="pr-5 pl-5 pr-sm-1 pl-sm-1">
             <v-icon x-large>{{ preview.icon }}</v-icon>
             <h5>&nbsp; {{ preview.name }}</h5>
         </v-btn>
