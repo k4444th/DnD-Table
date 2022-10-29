@@ -1,6 +1,5 @@
 <template>
     <div>
-
         <v-card class="mx-auto d-flex flex-column" max-width="600">
             <v-card-text>
                 <v-row>
