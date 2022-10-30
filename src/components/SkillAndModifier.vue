@@ -1,51 +1,61 @@
 <template>
-    <v-layout align-center justify-center>
-        <v-flex class="text-center">
-            <img src="./../../public/img/shapes/traits1.svg" width="112" alt="" class="traits-shape d-flex d-sm-none" :class="dark ? 'dark-theme': ''"/>
-            <img src="./../../public/img/shapes/traits1.svg" width="120" alt="" class="traits-shape d-none d-sm-flex d-md-none" :class="dark ? 'dark-theme': ''"/>
-            <img src="./../../public/img/shapes/traits1.svg" width="150" alt="" class="traits-shape d-none d-md-flex d-lg-none" :class="dark ? 'dark-theme': ''"/>
-            <img src="./../../public/img/shapes/traits1.svg" width="170" alt="" class="traits-shape d-none d-lg-flex d-xl-none" :class="dark ? 'dark-theme': ''"/>
-            <img src="./../../public/img/shapes/traits1.svg" width="170" alt="" class="traits-shape d-none d-xl-flex" :class="dark ? 'dark-theme': ''"/>
-            {{ skill.name }}
-            <br>
-            <span class="modifier pt-3 pr-3 pt-sm-5">{{ skill.modifier }}</span>
-            <br> 
-            <span class="skill pb-3">{{ skill.skill }}</span>
-        </v-flex>
-    </v-layout>
+	<v-layout align-center justify-center>
+		<div class="skillmodContainer">
+			<div>
+				<img src="./../../public/img/shapes/traits1.svg" alt="" class="traits-shape"
+					:class="dark ? 'dark-theme' : ''" />
+				<span class="skill">{{ skill.skill }}</span>
+				<span class="modifier">{{ skill.modifier }}</span>
+			</div>
+			<span>{{ skill.name }}</span>
+		</div>
+	</v-layout>
 </template>
 
 <script>
-    export default {
-        props: {
-            skill: Object
-        },
-        computed: {
-            dark() {
-                return this.$vuetify.theme.dark
-            }  
-        }
-    };
+export default {
+	props: {
+		skill: Object
+	},
+	computed: {
+		dark() {
+			return this.$vuetify.theme.dark
+		}
+	}
+};
 </script>
 
 <style scoped>
-    .traits-shape.dark-theme {
-        object-fit: contain;
-        filter: 
-        invert(100%);
-    }
-    .traits-shape {
-        padding-left: 10px
-    }
-    .modifier {
-        position: absolute;
-        font-size: 40px;
-        transform: translate(-25%, -180%);
+.skillmodContainer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
 
-    }
-    .skill {
-        position: absolute;
-        transform: translate(-15%, -200%);
-        font-size: 20px;
-    }
-  </style>
+.traits-shape {
+	width: 100px;
+	height: 100px;
+	user-select: none;
+}
+
+.traits-shape.dark-theme {
+	filter: invert(100%);
+}
+
+.modifier {
+	position: absolute;
+	top: 60%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 15px;
+}
+
+.skill {
+	position: absolute;
+	top: 35%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 40px;
+}
+</style>
