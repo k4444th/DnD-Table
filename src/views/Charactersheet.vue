@@ -4,25 +4,53 @@
       <br>
       <v-container>
         <CharacterCard v-bind:character="character"/>
+        <br>
         <v-row class="mt-3">
-            <v-col v-for="skill in character.skills" :key="skill.name" cols="4" sm="2" class="skills">
-                <SkillAndModifier v-bind:skill="skill"/>
+            <v-col v-for="skill in character.skillsAndModifier" :key="skill.name" cols="4" sm="2" class="traits">
+                <SkillsAndModifier v-bind:skill="skill"/>
             </v-col>
         </v-row>
+        <br>
+        <v-row class="mt-3">
+          <v-col v-for="trait in character.traits" :key="trait.name" cols="4" md="2" class="traits">
+            <Traits v-bind:trait="trait"/>
+          </v-col>
+          <v-col class="d-none d-md-block mt-md-6" cols="4 offset-1">
+            <Skills v-bind:skills="character.skills"/>
+            <br>
+            <SavingThrows v-bind:savingThrows="character.savingThrows"/>
+          </v-col>
+          <v-row class="d-md-none d-xs-flex mt-7 mr-2 ml-2">
+            <v-col cols="6" class="pa-2"><Skills v-bind:skills="character.skills"/></v-col>
+            <v-col cols="6" class="pa-2"><SavingThrows v-bind:savingThrows="character.savingThrows"/></v-col>
+          </v-row>
+        </v-row>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
       </v-container>
     </div>
   </template>
   
   <script>
   import Hero from "@/components/Hero.vue";
-  import SkillAndModifier from "@/components/SkillAndModifier.vue";
+  import SkillsAndModifier from "@/components/SkillsAndModifier.vue";
+  import Traits from "@/components/Traits.vue";
   import CharacterCard from "@/components/CharacterCard.vue";
+  import Skills from "@/components/Skills.vue";
+  import SavingThrows from "@/components/SavingThrows.vue";
   
   export default {
     name: "Home",
     components: {
       Hero,
-      SkillAndModifier,
+      SkillsAndModifier,
+      Traits,
+      Skills,
+      SavingThrows,
       CharacterCard
     },
     computed: {
@@ -34,7 +62,7 @@
   </script>
   
   <style scoped>
-    .skills {
+    .traits {
         position: relative;
     }
   </style>

@@ -28,7 +28,7 @@ export default new Vuex.Store({
     character: [
       {
         name: "Blablablub der Wackelpudding",
-        avatar: "/",
+        avatar: "public/img/shapes/avatar.jpg",
         generalInformation: {
           race: "Deamon",
           class: "Purple Caterpillar",
@@ -39,7 +39,7 @@ export default new Vuex.Store({
           xp: 39,
           hitdice: 37
         },
-        skills: [
+        skillsAndModifier: [
           {
             name: "Strength",
             modifier: "-2",
@@ -69,6 +69,162 @@ export default new Vuex.Store({
             name: "Charisma",
             modifier: "+1",
             skill: 12
+          },
+        ],
+        traits: [
+          {
+            name: "Armor Class",
+            value: 15
+          },
+          {
+            name: "Initiative",
+            value: 0
+          },
+          {
+            name: "Speed",
+            value: 35
+          }
+        ],
+        skills: [
+          {
+            name: "Acrobatics",
+            skill: "Dex",
+            value: "+6",
+            selected: true
+          },
+          {
+            name: "Animal Handling",
+            skill: "Wis",
+            value: "+3",
+            selected: false
+          },
+          {
+            name: "Arcana",
+            skill: "Int",
+            value: "0",
+            selected: false
+          },
+          {
+            name: "Athletics",
+            skill: "Str",
+            value: "-3",
+            selected: false
+          },
+          {
+            name: "Deception",
+            skill: "Cha",
+            value: "+6",
+            selected: true
+          },
+          {
+            name: "History",
+            skill: "Int",
+            value: "0",
+            selected: false
+          },
+          {
+            name: "Insight",
+            skill: "Wis",
+            value: "+3",
+            selected: false
+          },
+          {
+            name: "Intimidation",
+            skill: "Cha",
+            value: "+1",
+            selected: false
+          },
+          {
+            name: "Investigation",
+            skill: "Int",
+            value: "0",
+            selected: false
+          },
+          {
+            name: "Medicine",
+            skill: "Wis",
+            value: "+3",
+            selected: false
+          },
+          {
+            name: "Nature",
+            skill: "Int",
+            value: "0",
+            selected: false
+          },
+          {
+            name: "Perception",
+            skill: "Wis",
+            value: "+5",
+            selected: true
+          },
+          {
+            name: "Performance",
+            skill: "Cha",
+            value: "+1",
+            selected: false
+          },
+          {
+            name: "Persuasion",
+            skill: "Cha",
+            value: "+3",
+            selected: true
+          },
+          {
+            name: "Religion",
+            skill: "Int",
+            value: "0",
+            selected: false
+          },
+          {
+            name: "Sleight of Hand",
+            skill: "Dex",
+            value: "+5",
+            selected: true
+          },
+          {
+            name: "Stealth",
+            skill: "Dex",
+            value: "+10",
+            selected: true
+          },
+          {
+            name: "Survival",
+            skill: "Wis",
+            value: "+3",
+            selected: false
+          }
+        ],
+        savingThrows: [
+          {
+            name: "Strength",
+            value: "-2",
+            selected: false
+          },
+          {
+            name: "Dexterity",
+            value: "6",
+            selected: true
+          },
+          {
+            name: "Constitution",
+            value: "+1",
+            selected: false
+          },
+          {
+            name: "Intelligence",
+            value: "+2",
+            selected: true
+          },
+          {
+            name: "Wisdom",
+            value: "+2",
+            selected: false
+          },
+          {
+            name: "Charisma",
+            value: "+1",
+            selected: false
           },
         ]
       }

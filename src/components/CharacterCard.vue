@@ -22,7 +22,7 @@
                     </div>
                 </v-list-item-subtitle>
             </v-list-item-content>
-            <v-list-item-avatar tile size="120" color="grey" class="d-none d-sm-flex"></v-list-item-avatar>
+            <v-list-item-avatar v-if="character.avatar" tile size="120" color="grey" class="d-none d-sm-flex"><v-img :src="character.avatar"></v-img></v-list-item-avatar>
         </v-list-item>
     </v-card>
 </template>

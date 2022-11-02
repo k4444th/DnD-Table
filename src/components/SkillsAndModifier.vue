@@ -2,8 +2,7 @@
 	<v-layout align-center justify-center>
 		<div class="skillmodContainer">
 			<div>
-				<img src="./../../public/img/shapes/traits1.svg" alt="" class="traits-shape"
-					:class="dark ? 'dark-theme' : ''" />
+				<img src="./../../public/img/shapes/traits1.svg" alt="" class="traits-shape" :class="dark ? 'dark-theme' : ''" />
 				<span class="skill">{{ skill.skill }}</span>
 				<span class="modifier">{{ skill.modifier }}</span>
 			</div>
@@ -34,9 +33,10 @@ export default {
 }
 
 .traits-shape {
-	width: 100px;
-	height: 100px;
 	user-select: none;
+	width: 100%;
+    max-width: 125px;
+    min-width: 75%;
 }
 
 .traits-shape.dark-theme {
