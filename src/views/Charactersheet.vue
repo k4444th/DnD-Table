@@ -2,7 +2,7 @@
     <div>
       <Hero/>
       <br>
-      <v-container>
+      <v-container v-if="registered">
         <CharacterCard v-bind:character="character"/>
         <br>
         <v-row class="mt-3">
@@ -32,6 +32,9 @@
         <br>
         <br>
       </v-container>
+      <v-container v-else>
+        <Login/>
+      </v-container>
     </div>
   </template>
   
@@ -42,6 +45,7 @@
   import CharacterCard from "@/components/CharacterCard.vue";
   import Skills from "@/components/Skills.vue";
   import SavingThrows from "@/components/SavingThrows.vue";
+  import Login from "@/components/Login.vue";
   
   export default {
     name: "Home",
@@ -51,12 +55,16 @@
       Traits,
       Skills,
       SavingThrows,
-      CharacterCard
+      CharacterCard,
+      Login
     },
     computed: {
+        registered() {
+          return this.$store.state.registered;
+        },
         character() {
             return this.$store.state.character[0];
-        }  
+        } 
     }
   };
   </script>

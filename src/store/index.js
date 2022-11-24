@@ -6,6 +6,19 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
 
+    registered: false,
+
+    users: [
+      {
+        login: "temp",
+        password: "secure_pwd"
+      },
+      {
+        login: "temp2",
+        password: "very_secure_pwd"
+      }
+    ],
+
     previews: [
       {name: "watch", icon: "mdi-eye-outline", url: "/about"},
       {name: "create", icon: "mdi-pencil-outline", url: "/about"},
@@ -230,7 +243,11 @@ export default new Vuex.Store({
       }
     ]
   },
-  mutations: {},
+  mutations: {
+    setRegistered(state, registered) {
+      state.registered = registered;
+    }
+  },
   actions: {},
   modules: {},
 });
