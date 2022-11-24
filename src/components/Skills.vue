@@ -9,7 +9,7 @@
                 <v-toolbar color="primary" dark><span class="text-h5">Skills</span></v-toolbar>
                 <v-card-text class="pa-sm-12 pa-6">
                     <v-radio-group>
-                        <v-radio v-for="skill in skills" :key="skill.name" disabled="true" :value="skill.selected">
+                        <v-radio v-for="skill in skills" :key="skill.name" disabled="false" :off-icon="skill.selected ? '$radioOn' : '$radioOff'">
                             <template v-slot:label>
                               <div>
                                 <div class="value text-center">{{ skill.value }}</div>
@@ -51,5 +51,8 @@ export default {
     }
     .skill {
         display: inline-block;
+    }
+    .theme--dark.v-icon {
+        color: grey !important;
     }
 </style>

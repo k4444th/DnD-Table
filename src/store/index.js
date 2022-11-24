@@ -90,7 +90,7 @@ export default new Vuex.Store({
             name: "Acrobatics",
             skill: "Dex",
             value: "+6",
-            selected: true
+            selected: Boolean(true)
           },
           {
             name: "Animal Handling",

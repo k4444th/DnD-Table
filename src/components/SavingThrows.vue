@@ -9,7 +9,7 @@
                 <v-toolbar color="primary" dark><span class="text-h5">Saving Throws</span></v-toolbar>
                 <v-card-text class="pa-sm-12 pa-6">
                     <v-radio-group value="true">
-                        <v-radio v-for="savingThrow in savingThrows" :key="savingThrow.name" disabled="true" :value="savingThrow.selected">
+                        <v-radio v-for="savingThrow in savingThrows" :key="savingThrow.name" disabled="true" :off-icon="savingThrow.selected ? '$radioOn' : '$radioOff'">
                             <template v-slot:label>
                                 <div>
                                     <div class="value text-center">{{ savingThrow.value }}</div>
