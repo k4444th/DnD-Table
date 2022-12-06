@@ -24,6 +24,11 @@ const routes = [
     name: "Charactersheet",
     component: () => import("../views/Charactersheet.vue"),
   },
+  {
+    path: "/gamemaster",
+    name: "Gamemaster",
+    component: () => import("../views/Gamemaster.vue"),
+  }
 ];
 
 const router = new VueRouter({

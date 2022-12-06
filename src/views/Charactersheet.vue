@@ -26,11 +26,6 @@
           </v-row>
         </v-row>
         <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
       </v-container>
       <v-container v-else>
         <Login/>

@@ -6,10 +6,10 @@
                     <v-toolbar color="primary" dark><span class="text-h5"><v-icon class="account-icon">mdi-account-outline</v-icon> Login</span></v-toolbar>
                     <v-container>
                         <v-form v-model="valid" ref="loginData">
-                                <v-text-field v-model="username" :rules="requiredUser" label="Username" required></v-text-field>
+                                <v-text-field v-model="username" :rules="requiredUser" label="Username" required v-on:keyup.enter="onEnter"></v-text-field>
                                 <v-row>
                                     <v-col cols="10" sm="11">
-                                        <v-text-field v-model="password" :rules="requiredPassword" label="Password" required :type="visible ? 'text' : 'password'"></v-text-field>
+                                        <v-text-field v-model="password" :rules="requiredPassword" label="Password" required :type="visible ? 'text' : 'password'" v-on:keyup.enter="onEnter"></v-text-field>
                                     </v-col>
                                     <v-col cols="2" sm="1">
                                         <v-icon class="eye-con" v-if="visible" v-on:click="toggleVisible">mdi-eye-off-outline</v-icon>
@@ -53,16 +53,22 @@ export default {
             this.visible = !this.visible;
         },
         checkLogin() {
-            let users = this.$store.state.users;
-            for (let i = users.length - 1; i >= 0; i--) {
-                if (users[i].login == this.username && users[i].password == this.password) {
-                    this.$store.commit("setRegistered", true);
-                    this.dialog = false;
-                    return;
+            if (this.username != '' && this.password != '') {
+                let users = this.$store.state.users;
+                for (let i = users.length - 1; i >= 0; i--) {
+                    if (users[i].login == this.username && users[i].password == this.password) {
+                        this.$store.commit("setRegistered", true);
+                        this.dialog = false;
+                        return;
+                    }
                 }
+                this.$refs.loginData.reset();
             }
-            this.$refs.loginData.reset();
         },
+        onEnter: function() {
+            this.checkLogin();
+            console.log("Check Login");
+        }
     }
 };
 </script>

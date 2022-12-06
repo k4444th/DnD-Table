@@ -3,7 +3,9 @@
         <v-app-bar app color="primary" dark>
             <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
             <v-spacer></v-spacer>
-            <v-toolbar-title>D&D-Table</v-toolbar-title>
+            <router-link to="/">
+                <v-toolbar-title class="white--text">D&D-Table</v-toolbar-title>
+            </router-link>
             <v-spacer></v-spacer>
             <v-btn icon @click="toggleDarkTheme()">
                 <v-icon>mdi-theme-light-dark</v-icon>
@@ -31,7 +33,7 @@
                     </v-list-item>
                 </router-link>
 
-                <router-link to="/about">
+                <router-link to="/gamemaster">
                     <v-list-item>
                         <v-list-item-icon>
                             <v-icon>mdi-pencil-outline</v-icon>
