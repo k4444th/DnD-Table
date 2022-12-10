@@ -3,11 +3,11 @@
       <Hero/>
       <br>
       <v-container v-if="registered">
-        <CharacterCard v-bind:character="character"/>
+        <CharacterCard v-bind:character="character" v-bind:name="true" v-bind:avatar="true"/>
         <br>
         <v-row class="mt-3">
             <v-col v-for="skill in character.skillsAndModifier" :key="skill.name" cols="4" sm="2" class="traits">
-                <SkillsAndModifier v-bind:skill="skill"/>
+                <SkillsAndModifier v-bind:skill="skill" v-bind:size="'big'"/>
             </v-col>
         </v-row>
         <br>

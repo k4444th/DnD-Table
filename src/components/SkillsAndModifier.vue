@@ -3,10 +3,21 @@
 		<div class="skillmodContainer">
 			<div>
 				<img src="./../../public/img/shapes/traits1.svg" alt="" class="traits-shape" :class="dark ? 'dark-theme' : ''" />
-				<span class="skill">{{ skill.skill }}</span>
-				<span class="modifier">{{ skill.modifier }}</span>
+				<div v-if="size == 'big'">
+					<span class="skill-big">{{ skill.skill }}</span>
+					<span class="modifier-big">{{ skill.modifier }}</span>
+				</div>
+				<div v-if="size == 'small'">
+					<span class="skill-small">{{ skill.skill }}</span>
+					<span class="modifier-small">{{ skill.modifier }}</span>
+				</div>
 			</div>
-			<span>{{ skill.name }}</span>
+			<div v-if="size == 'big'">
+				<span>{{ skill.name }}</span>
+			</div>
+			<div v-if="size == 'small'">
+				<span>{{ skill.shortname }}</span>
+			</div>
 		</div>
 	</v-layout>
 </template>
@@ -14,7 +25,8 @@
 <script>
 export default {
 	props: {
-		skill: Object
+		skill: Object,
+		size: String
 	},
 	computed: {
 		dark() {
@@ -43,7 +55,7 @@ export default {
 	filter: invert(100%);
 }
 
-.modifier {
+.modifier-big {
 	position: absolute;
 	top: 60%;
 	left: 50%;
@@ -51,11 +63,27 @@ export default {
 	font-size: 15px;
 }
 
-.skill {
+.skill-big {
 	position: absolute;
 	top: 35%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	font-size: 40px;
+}
+
+.modifier-small {
+	position: absolute;
+	top: 53%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 10px;
+}
+
+.skill-small {
+	position: absolute;
+	top: 33%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 25px;
 }
 </style>

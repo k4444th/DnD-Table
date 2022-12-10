@@ -3,11 +3,16 @@
       <Hero/>
       <br>
       <v-container v-if="registered">
-        <h1>Gamemaster</h1>
+        <v-row>
+            <v-col v-for="character in characters" :key="character[0]" class="col-12 col-sm-6">
+               <GamemasterPreview v-bind:charcter="character"/>
+            </v-col>
+        </v-row>
       </v-container>
       <v-container v-else>
         <Login/>
       </v-container>
+      <br>
     </div>
   </template>
   
@@ -15,17 +20,28 @@
   // @ is an alias to /src
   import Hero from "@/components/Hero.vue";
   import Login from "@/components/Login.vue";
+  import GamemasterPreview from "@/components/GamemasterPreview.vue";
   
   export default {
     name: "Gamemaster",
     components: {
-      Hero,
-      Login
+        Hero,
+        Login,
+        GamemasterPreview
     },
     computed: {
         registered() {
           return this.$store.state.registered;
-        }
+        },
+        characters() {
+            return this.$store.state.character;
+        } 
     }
   };
   </script>
+
+  <style scoped>
+        .traits {
+            position: relative;
+        }
+  </style>

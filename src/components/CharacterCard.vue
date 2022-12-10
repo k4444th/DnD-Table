@@ -2,7 +2,7 @@
     <v-card class="mx-auto" outlined>
         <v-list-item>
             <v-list-item-content>
-                <v-list-item-title class="text-h5 mb-1">{{ character.name }}</v-list-item-title>
+                <v-list-item-title class="text-h5 mb-1" v-if="name">{{ character.name }}</v-list-item-title>
                 <div class="mb-5">
                     <v-chip class="mr-2 mr-sm-5 mt-3">Race: {{ character.generalInformation.race }}</v-chip>
                     <v-chip class="mr-2 mr-sm-5 mt-3">Class: {{ character.generalInformation.class }}</v-chip>
@@ -22,7 +22,7 @@
                     </div>
                 </v-list-item-subtitle>
             </v-list-item-content>
-            <v-list-item-avatar v-if="character.avatar" tile size="120" color="grey" class="d-none d-sm-flex"><v-img :src="character.avatar"></v-img></v-list-item-avatar>
+            <v-list-item-avatar v-if="character.avatar && avatar" tile size="120" color="grey" class="d-none d-sm-flex"><v-img :src="character.avatar"></v-img></v-list-item-avatar>
         </v-list-item>
     </v-card>
 </template>
@@ -30,7 +30,9 @@
 <script>
     export default {
         props: {
-            character: Object
+            character: Object,
+            name: Boolean,
+            avatar: Boolean
         },
         computed: {
             dark() {

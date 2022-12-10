@@ -53,7 +53,7 @@ export default {
             this.visible = !this.visible;
         },
         checkLogin() {
-            if (this.username != '' && this.password != '') {
+            if (this.username.length > 0 && this.password.length > 0) {
                 let users = this.$store.state.users;
                 for (let i = users.length - 1; i >= 0; i--) {
                     if (users[i].login == this.username && users[i].password == this.password) {
