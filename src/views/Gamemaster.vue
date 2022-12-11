@@ -5,7 +5,7 @@
       <v-container v-if="registered">
         <v-row>
             <v-col v-for="character in characters" :key="character[0]" class="col-12 col-sm-6">
-               <GamemasterPreview v-bind:charcter="character"/>
+              <GamemasterPreview v-bind:character="character"/>
             </v-col>
         </v-row>
       </v-container>
@@ -20,7 +20,7 @@
   // @ is an alias to /src
   import Hero from "@/components/Hero.vue";
   import Login from "@/components/Login.vue";
-  import GamemasterPreview from "@/components/GamemasterPreview.vue";
+  import GamemasterPreview from "../components/GamemasterPreview.vue";
   
   export default {
     name: "Gamemaster",
