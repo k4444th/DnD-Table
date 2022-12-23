@@ -20,14 +20,14 @@
   // @ is an alias to /src
   import Hero from "@/components/Hero.vue";
   import Login from "@/components/Login.vue";
-  import GamemasterPreview from "../components/GamemasterPreview.vue";
+  import GamemasterPreview from "@/components/GamemasterPreview.vue";
   
   export default {
     name: "Gamemaster",
     components: {
         Hero,
         Login,
-        GamemasterPreview
+        GamemasterPreview,
     },
     computed: {
         registered() {

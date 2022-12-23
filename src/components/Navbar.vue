@@ -1,10 +1,13 @@
 <template>
     <div>
-        <v-app-bar app color="primary" dark>
+        <v-app-bar app color="primary" dark height="75">
             <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
             <v-spacer></v-spacer>
             <router-link to="/">
-                <v-toolbar-title class="white--text">D&D-Table</v-toolbar-title>
+                <!-- <v-toolbar-title class="white--text">D&D-Table</v-toolbar-title> -->
+              <!--   <v-btn class="red accent-1" height="52" width="40">
+                </v-btn> -->
+                <img src="../../public/img/logo_white.png" height="70">
             </router-link>
             <v-spacer></v-spacer>
             <v-btn icon @click="toggleDarkTheme()">
@@ -12,8 +15,11 @@
             </v-btn>
         </v-app-bar>
 
-        <v-navigation-drawer v-model="drawer" temporary app>
+        <v-navigation-drawer v-model="drawer" temporary app width="165">
             <v-list nav dense>
+                <img src="../../public/img/logo.png" width="150px">
+                <br><br><hr><br>
+
                 <v-list-item-group v-model="group" active-class="deep-orange--text text--darken-4">
                 <router-link to="/">
                     <v-list-item> 
