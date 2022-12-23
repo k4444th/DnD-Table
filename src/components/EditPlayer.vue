@@ -43,9 +43,50 @@
                             <br>
 
                             <div class="mt-7 mr-2 ml-2">
-                                <Skills v-bind:skills="character.skills"/>
+
+                                <v-layout align-center justify-center>
+                                    <v-dialog transition="dialog-bottom-transition" max-width="400">
+                                    <template v-slot:activator="{ on, attrs }">
+                                        <v-btn color="primary" block v-bind="attrs" v-on="on">Skills</v-btn>
+                                    </template>
+                                    <template v-slot:default="dialog">
+                                        <v-card>
+                                            <v-toolbar color="primary" dark><span class="text-h5">Skills</span></v-toolbar>
+                                            <v-card-text class="pa-sm-12 pa-6">
+                                                <v-checkbox v-for="skill in character.skills" :key="skill.name" :label=" skill.name" v-model="skill.selected"></v-checkbox>
+                                            </v-card-text>
+                                            <v-card-actions class="justify-end">
+                                            <v-btn text @click="dialog.value = false">Close</v-btn>
+                                            </v-card-actions>
+                                        </v-card>
+                                    </template>
+                                    </v-dialog>
+                                </v-layout>
+
                                 <br>
-                                <SavingThrows v-bind:savingThrows="character.savingThrows"/>
+
+                                <v-layout align-center justify-center>
+                                    <v-dialog transition="dialog-bottom-transition" max-width="400">
+                                    <template v-slot:activator="{ on, attrs }">
+                                        <v-btn color="primary" block v-bind="attrs" v-on="on">Saving Throws</v-btn>
+                                    </template>
+                                    <template v-slot:default="dialog">
+                                        <v-card>
+                                            <v-toolbar color="primary" dark><span class="text-h5">Saving Throws</span></v-toolbar>
+                                            <v-card-text class="pa-sm-12 pa-6">
+                                                <div v-for="savingThrow in character.savingThrows" :key="savingThrow.name" :label=" savingThrow.name">
+                                                    <v-checkbox v-model="savingThrow.selected" :label="savingThrow.name" class="float-left mr-5"></v-checkbox>
+                                                    <v-text-field v-model="savingThrow.value"></v-text-field>
+                                                </div>
+                                            </v-card-text>
+                                            <v-card-actions class="justify-end">
+                                            <v-btn text @click="dialog.value = false">Close</v-btn>
+                                            </v-card-actions>
+                                        </v-card>
+                                    </template>
+                                    </v-dialog>
+                                </v-layout>
+
                             </div>
 
                             <br>
@@ -74,9 +115,6 @@
   
 <script>
 
-import Skills from "@/components/Skills.vue";
-import SavingThrows from "@/components/SavingThrows.vue";
-
   export default {
     data () {
       return {
@@ -90,25 +128,12 @@ import SavingThrows from "@/components/SavingThrows.vue";
         dark() {
             return this.$vuetify.theme.dark
         }    
-    },
-    components: {
-        Skills,
-        SavingThrows
     }
   };
   </script>
   
   <style scoped>
-    .traits {
-        position: relative;
-    }
     .float-left {
         float: left;
-    }
-    .white-input {
-        color: white;
-    }
-    .grey-input {
-        color: gray;
     }
   </style>
