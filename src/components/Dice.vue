@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="overlay" @click="hide"></div>
-        <v-btn class="float-right" fab dark small color="primary" @click="rollDice">
+        <v-btn fab dark small color="primary" @click="rollDice">
             <v-icon dark>mdi-dice-5-outline</v-icon>
         </v-btn>
         <div class="dice-container">
@@ -50,7 +50,6 @@
     top: 0;
     bottom: 0;
     margin: auto; 
-    width: 0px;
 
     opacity: 0;
     -webkit-transition: opacity 1s ease;
@@ -59,6 +58,7 @@
     -o-transition: opacity 1s ease;
     transition: opacity 1s ease;
 
+    width: 0px;
     -webkit-transition: width 1s ease;
     -moz-transition: width 1s ease;
     -ms-transition: width 1s ease;
