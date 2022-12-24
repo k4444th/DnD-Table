@@ -28,6 +28,11 @@ const routes = [
     path: "/gamemaster",
     name: "Gamemaster",
     component: () => import("../views/Gamemaster.vue"),
+  },
+  {
+    path: "/tv",
+    name: "Tv",
+    component: () => import("../views/Tv.vue"),
   }
 ];
 

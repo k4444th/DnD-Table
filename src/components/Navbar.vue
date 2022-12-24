@@ -57,7 +57,7 @@
                     </v-list-item>
                 </router-link>
 
-                <router-link to="/about">
+                <router-link to="/tv">
                     <v-list-item>
                         <v-list-item-icon>
                             <v-icon>mdi-television</v-icon>
