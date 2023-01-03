@@ -27,6 +27,22 @@
             <v-col cols="6" class="pa-2 float-left"><SavingThrows v-bind:savingThrows="character.savingThrows"/></v-col>
             <br><br>
         </v-row>
+        <br>
+        <v-dialog transition="dialog-bottom-transition" max-width="600">
+            <template v-slot:activator="{ on, attrs }">
+                <v-btn color="primary" block v-bind="attrs" v-on="on">Quotes</v-btn>
+            </template>
+            <template v-slot:default="dialog">
+                <v-card>
+                    <v-toolbar color="primary" dark><span class="text-h5">Quotes</span></v-toolbar>
+                    <br>
+                    <Quotes v-bind:quotes="character.quotes"/>
+                    <v-card-actions class="justify-end">
+                    <v-btn text @click="dialog.value = false">Close</v-btn>
+                    </v-card-actions>
+                </v-card>
+            </template>
+        </v-dialog>
     </v-card>
   </template>
   
@@ -38,6 +54,7 @@
   import Skills from "@/components/Skills.vue";
   import SavingThrows from "@/components/SavingThrows.vue";
   import EditPlayer from "./EditPlayer.vue";
+  import Quotes from "./Quotes.vue";
 
   export default {
     props: {
@@ -49,7 +66,8 @@
         SkillsAndModifier,
         Skills,
         SavingThrows,
-        EditPlayer
+        EditPlayer,
+        Quotes
     }
   };
   </script>

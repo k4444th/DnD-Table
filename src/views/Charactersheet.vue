@@ -26,6 +26,9 @@
           </v-row>
         </v-row>
         <br>
+        <br>
+        <Quotes v-bind:quotes="character.quotes"/>
+        <br>
       </v-container>
       <v-container v-else>
         <Login/>
@@ -40,6 +43,7 @@
   import CharacterCard from "@/components/CharacterCard.vue";
   import Skills from "@/components/Skills.vue";
   import SavingThrows from "@/components/SavingThrows.vue";
+  import Quotes from "@/components/Quotes.vue";
   import Login from "@/components/Login.vue";
   
   export default {
@@ -51,7 +55,8 @@
       Skills,
       SavingThrows,
       CharacterCard,
-      Login
+      Login,
+      Quotes
     },
     computed: {
         registered() {

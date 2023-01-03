@@ -245,6 +245,32 @@ export default new Vuex.Store({
             value: "+1",
             selected: false
           },
+        ],
+        quotes: [
+          {
+            name: "personality traits",
+            quote: "personality trait quote"
+          },
+          {
+            name: "ideals",
+            quote: "ideals quote"
+          },
+          {
+            name: "bonds",
+            quote: "bonds quote"
+          },
+          {
+            name: "flaws",
+            quote: "flaws quote"
+          },
+          {
+            name: "feautures and traits",
+            quote: "feautures and traits quote"
+          },
+          {
+            name: "other profiencies and languages",
+            quote: "other profiencies and languages quote"
+          }
         ]
       },
       {
