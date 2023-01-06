@@ -26,14 +26,55 @@ export default new Vuex.Store({
       {name: "TV", icon: "mdi-television", url: "/tv"},
     ],
 
+    wotd: 0,
+
     weapons: [
       {
         name: "Sword",
-        image: "public/img/shapes/shield1.svg",
+        // shield: "./../../public/img/shapes/shield1.svg",
+        icon: "mdi-knife-military",
         description: "You can cut your vegetables using a sword. Just be carefull not to hurt your fingers. It is very sharp so always hande it with caution. It would be the best, if you didn't use it at all",
         properties: [
-          {name: "sharpness", score: 8},
-          {name: "coolness", score: 6}
+          {name: "wealth", score: "1 sp"},
+          {name: "cost damage", score: "1d4 bludgeoning"},
+          {name: "weight properties", score: "2lb"},
+          {name: "simple melee weoapons", score: "Light"}
+        ]
+      },
+      {
+        name: "Bubble",
+        // shield: "./../../public/img/shapes/shield1.svg",
+        icon: "mdi-chart-bubble",
+        description: "You can cut your vegetables using a sword. Just be carefull not to hurt your fingers. It is very sharp so always hande it with caution. It would be the best, if you didn't use it at all",
+        properties: [
+          {name: "wealth", score: "1 sp"},
+          {name: "cost damage", score: "1d4 bludgeoning"},
+          {name: "weight properties", score: "2lb"},
+          {name: "simple melee weoapons", score: "Light"}
+        ]
+      },
+      {
+        name: "Shield",
+        // shield: "./../../public/img/shapes/shield1.svg",
+        icon: "mdi-security",
+        description: "You can cut your vegetables using a sword. Just be carefull not to hurt your fingers. It is very sharp so always hande it with caution. It would be the best, if you didn't use it at all",
+        properties: [
+          {name: "wealth", score: "1 sp"},
+          {name: "cost damage", score: "1d4 bludgeoning"},
+          {name: "weight properties", score: "2lb"},
+          {name: "simple melee weoapons", score: "Light"}
+        ]
+      },
+      {
+        name: "Bow",
+        // shield: "./../../public/img/shapes/shield1.svg",
+        icon: "mdi-bow-arrow",
+        description: "You can cut your vegetables using a sword. Just be carefull not to hurt your fingers. It is very sharp so always hande it with caution. It would be the best, if you didn't use it at all",
+        properties: [
+          {name: "wealth", score: "1 sp"},
+          {name: "cost damage", score: "1d4 bludgeoning"},
+          {name: "weight properties", score: "2lb"},
+          {name: "simple melee weoapons", score: "Light"}
         ]
       }
     ],

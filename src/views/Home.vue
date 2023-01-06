@@ -3,17 +3,15 @@
     <PreviewHero/>
     <br>
     <v-container>
-      <WeaponOfTheDay :weapon="weapon" />
+      <WeaponOfTheDay :weapon="wotd" />
       <br>
       <hr>
       <br>
-      <h1>Notes:</h1>
-      <br>
-      <h2>Weapon of the day</h2>
-      <p>Random Weapon that gets picket out by server</p>
-      <br>
-      <h2>Weapons</h2>
-      <p>list of all items in database</p>
+      <v-row>
+        <v-col class="col-6 col-md-3 col-lg-2" v-for="weapon in weapons" :key="weapon.name">
+          <Weapon :weapon="weapon"/>
+        </v-col>
+      </v-row>
     </v-container>
   </div>
 </template>
@@ -22,16 +20,21 @@
 // @ is an alias to /src
 import PreviewHero from "@/components/PreviewHero.vue";
 import WeaponOfTheDay from "@/components/WeaponOfTheDay.vue"
+import Weapon from "@/components/Weapon.vue"
 
 export default {
   name: "Home",
   components: {
     PreviewHero,
-    WeaponOfTheDay
+    WeaponOfTheDay,
+    Weapon
   },
   computed: {
-    weapon() {
-      return this.$store.state.weapons[0];
+    wotd() {
+      return this.$store.state.weapons[this.$store.state.wotd];
+    },
+    weapons() {
+      return this.$store.state.weapons;
     }
   }
 };

@@ -7,6 +7,8 @@
                         <v-layout align-center>
                             <v-flex class="text-center">
                                 <img src="./../../public/img/shapes/shield1.svg" height="200" alt="" class="wotd-shield" :class="dark ? 'dark-theme': ''"/>
+                                <v-icon class="wotd-icon-big d-none d-md-flex mt-md-6 text--primary">{{ weapon.icon }}</v-icon>
+                                <v-icon class="wotd-icon-small d-md-none d-xs-flex mt-7 mr-2 ml-2 text--primary">{{ weapon.icon }}</v-icon>
                             </v-flex>
                         </v-layout>
                     </v-col>
@@ -27,10 +29,10 @@
                     <v-card-text class="pb-0">
                         <p class="text-h4 text--primary">Properties</p>
                         <div v-for="property in weapon.properties" :key="property.name">
-                            <p>
-                                <span class="text-h6 text--primary">{{ property.name }}: </span>
-                                <span>{{ property.score }}</span>
-                            </p>
+                            <v-row>
+                                <v-col class="text--primary">{{ property.name }}: </v-col>
+                                <v-col class="text--primary">{{ property.score }}</v-col>
+                            </v-row>
                         </div>
                     </v-card-text>
                     <v-spacer></v-spacer>
@@ -70,5 +72,17 @@
     .wotd-shield.dark-theme {
         object-fit: contain;
         filter: invert(100%);
+    }
+    .wotd-icon-big {
+        font-size: 100px;
+        position: absolute;
+        left: 75px;
+        top: 40px;
+    }
+    .wotd-icon-small {
+        font-size: 100px;
+        position: absolute;
+        left: 115px;
+        top: 40px;
     }
 </style>
