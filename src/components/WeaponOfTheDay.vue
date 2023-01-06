@@ -26,8 +26,8 @@
 
             <v-expand-transition>
                 <v-card v-if="reveal" class="transition-fast-in-fast-out v-card--reveal d-flex flex-column" style="height: 100%;">
+                    <v-toolbar color="primary" dark><span class="text-h5">Properties</span></v-toolbar>
                     <v-card-text class="pb-0">
-                        <p class="text-h4 text--primary">Properties</p>
                         <div v-for="property in weapon.properties" :key="property.name">
                             <v-row>
                                 <v-col class="text--primary">{{ property.name }}: </v-col>
@@ -84,5 +84,8 @@
         position: absolute;
         left: 115px;
         top: 40px;
+    }
+    #app > div.v-application--wrap > main > div > div > div.container > div:nth-child(1) > div > div.transition-fast-in-fast-out.v-card--reveal.d-flex.flex-column.v-card.v-sheet.theme--dark > header, #app > div.v-application--wrap > main > div > div > div.container > div:nth-child(1) > div > div.transition-fast-in-fast-out.v-card--reveal.d-flex.flex-column.v-card.v-sheet.theme--light > header {
+        height: 20px !important;
     }
 </style>
