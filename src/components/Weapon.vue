@@ -4,7 +4,7 @@
             <v-card-text>
                 <v-layout align-center>
                     <v-flex class="text-center">
-                        <h3>{{ weapon.name }}</h3>
+                        <h3 class="text--primary">{{ weapon.name }}</h3>
                         <br>
                         <v-icon class="icon text--primary">{{ weapon.icon }}</v-icon>
                     </v-flex>
