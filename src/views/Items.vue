@@ -1,137 +1,85 @@
 <template>
 	<v-container>
-		<v-data-table :headers="headers" :items="items" :search="searchQuery" :page.sync="page"
-			:items-per-page="pageSize" :server-items-length="total" @update:search="updateSearch">
-			<template v-slot:item.name="{ item }">
-				<span>{{ item.name }}</span>
-			</template>
-			<template v-slot:item.description="{ item }">
-				<span>{{ item.description }}</span>
-			</template>
-			<template v-slot:item.actions="{ item }">
-				<v-btn color="primary" @click="editItem(item)">Edit</v-btn>
-				<v-btn color="error" @click="deleteItem(item)">Delete</v-btn>
-			</template>
-		</v-data-table>
-		<v-pagination v-model="page" :length="totalPages"></v-pagination>
-		<v-dialog v-model="dialog" fullscreen>
+		<v-text-field v-model="search_query">
+			<v-icon slot="prepend">
+				mdi-magnify
+			</v-icon>
+		</v-text-field>
+
+		<div v-if="loading"><v-skeleton-loader class="mx-auto" type="card@5"></v-skeleton-loader></div>
+
+		<div v-if="!loading">
+			<v-container v-for="item in items" :key="item.id">
+				<Item :item="item"/>
+			</v-container>
+			<p v-if="items.length == 0">No items found.</p>
+		</div>
+
+		<v-pagination v-model="page" :length="total" @input="search_items"></v-pagination>
+
+		<v-btn color="green" fixed bottom right fab @click="dialog = true">
+			<v-icon>mdi-plus</v-icon>
+		</v-btn>
+
+		<v-dialog v-model="dialog" fullscreen hide-overlay transition="dialog-bottom-transition">
 			<v-card>
-				<v-card-title>
-					<span v-if="isEdit">Edit Item</span>
-					<span v-else>Add Item</span>
-				</v-card-title>
-				<v-card-text>
-					<v-form>
-						<v-text-field label="Name" v-model="currentItem.name" />
-						<v-text-field label="Description" v-model="currentItem.description" />
-					</v-form>
-				</v-card-text>
-				<v-card-actions>
-					<v-spacer></v-spacer>
-					<v-btn color="primary" @click="saveItem">Save</v-btn>
-					<v-btn color="error" @click="closeDialog">Cancel</v-btn>
-				</v-card-actions>
+				<v-toolbar dark color="primary">
+					<v-btn icon dark @click="dialog = false">
+						<v-icon>mdi-close</v-icon>
+					</v-btn>
+					<v-toolbar-title>Create Item</v-toolbar-title>
+				</v-toolbar>
+				<ItemEditor @closeDialog="dialog = false"/>
+
 			</v-card>
 		</v-dialog>
-		<v-btn color="success" @click="addItem">Add</v-btn>
+
 	</v-container>
 </template>
 
 <script>
 import axios from 'axios';
 
+import Item from "@/components/Item.vue";
+import ItemEditor from '../components/ItemEditor.vue';
+
 export default {
 	data() {
 		return {
-			headers: [
-				{ text: 'Name', value: 'name' },
-				{ text: 'Description', value: 'description' },
-				{ text: 'Actions', value: 'actions' },
-			],
+			search_query: '',
 			items: [],
-			page: 1,
-			pageSize: 10,
-			searchQuery: '',
 			total: 0,
-			totalPages: 0,
-			dialog: false,
-			isEdit: false,
-			currentItem: {
-				name: '',
-				description: '',
-			},
+			page: 1,
+			search_timeout: null,
+			loading: false,
+			dialog: false
 		};
 	},
 	methods: {
-		// CRUD actions
-		async addItem() {
-			this.dialog = true;
-			this.isEdit = false;
-			this.currentItem = {
-				name: '',
-				description: '',
-			}
-		},
-		async editItem(item) {
-			this.dialog = true;
-			this.isEdit = true;
-			this.currentItem = { ...item }
-		},
-		async saveItem() {
-			try {
-				let result;
-				if (this.isEdit) {
-					//update item
-					result = await axios.put(`http://localhost:3000/items/id/${this.currentItem.id}`, this.currentItem);
-				} else {
-					//create new item
-					result = await axios.post(`http://localhost:3000/items`, this.currentItem);
-				}
+		async search_items() {
+			this.loading = true;
 
-				console.log(result);
-				
-				//refresh the list
-				this.fetchData();
-				this.dialog = false;
-			} catch (error) {
-				console.error(error);
-			}
-		},
-		async deleteItem(item) {
-			try {
-				await axios.delete(`http://localhost:3000/items/id/${item.id}`);
-				this.fetchData();
-			} catch (error) {
-				console.error(error);
-			}
-		},
-		closeDialog() {
-			this.dialog = false;
-		},
-		// get data from the server
-		async fetchData() {
-			try {
-				const { data } = await axios.get('http://localhost:3000/items', {
-					params: {
-						page: this.page,
-						pageSize: this.pageSize,
-						search_query: this.searchQuery
-					}
-				});
-				this.items = data.items;
-				this.total = Number(data.total);
-				this.totalPages = Math.ceil(this.total / this.pageSize);
-			} catch (error) {
-				console.error(error);
-			}
-		},
-		updateSearch() {
-			this.page = 1;
-			this.fetchData();
-		},
+			const response = await axios.get(`${process.env.VUE_APP_DND_API_ENDPOINT}/items/?page=${this.page}&pageSize=${5}&search_query=${this.search_query}`);
+			
+			this.items = response.data.items;
+			this.total = Math.ceil(response.data.total / 5);
+
+			console.log(response.data)
+			this.loading = false;
+		}
 	},
 	created() {
-		this.fetchData();
+		this.search_items('');
 	},
+	watch: {
+		async search_query() {
+			if(this.search_timeout) clearTimeout(this.search_timeout);
+			this.search_timeout = setTimeout(this.search_items, 500);
+		}
+	},
+	components: {
+		Item,
+		ItemEditor
+	}
 };
 </script>
