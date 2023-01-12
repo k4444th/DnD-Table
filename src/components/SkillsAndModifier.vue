@@ -1,25 +1,28 @@
 <template>
-	<v-layout align-center justify-center>
-		<div class="skillmodContainer">
-			<div>
-				<img src="./../../public/img/shapes/traits1.svg" alt="" class="traits-shape" :class="dark ? 'dark-theme' : ''" />
+	<v-container>
+		<img src="./../../public/img/shapes/traits1.svg" alt="" class="traits-shape"
+			:class="dark ? 'dark-theme' : ''" />
+		<v-layout align-center justify-center>
+			<div class="skillmodContainer">
+				<div>
+					<div v-if="size == 'big'">
+						<span class="skill-big">{{ skill.skill }}</span>
+						<span class="modifier-big">{{ skill.modifier }}</span>
+					</div>
+					<div v-if="size == 'small'">
+						<span class="skill-small">{{ skill.skill }}</span>
+						<span class="modifier-small">{{ skill.modifier }}</span>
+					</div>
+				</div>
 				<div v-if="size == 'big'">
-					<span class="skill-big">{{ skill.skill }}</span>
-					<span class="modifier-big">{{ skill.modifier }}</span>
+					<span>{{ skill.name }}</span>
 				</div>
 				<div v-if="size == 'small'">
-					<span class="skill-small">{{ skill.skill }}</span>
-					<span class="modifier-small">{{ skill.modifier }}</span>
+					<span>{{ skill.shortname }}</span>
 				</div>
 			</div>
-			<div v-if="size == 'big'">
-				<span>{{ skill.name }}</span>
-			</div>
-			<div v-if="size == 'small'">
-				<span>{{ skill.shortname }}</span>
-			</div>
-		</div>
-	</v-layout>
+		</v-layout>
+	</v-container>
 </template>
 
 <script>
@@ -47,8 +50,8 @@ export default {
 .traits-shape {
 	user-select: none;
 	width: 100%;
-    max-width: 125px;
-    min-width: 75%;
+	max-width: 125px;
+	min-width: 75%;
 }
 
 .traits-shape.dark-theme {

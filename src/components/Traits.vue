@@ -34,7 +34,7 @@ export default {
 
 .traits-shape {
 	user-select: none;
-	width: 100%;
+	width: 100px;
     max-width: 125px;
     min-width: 75%;
 }
