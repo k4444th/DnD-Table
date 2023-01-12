@@ -75,16 +75,25 @@
                     </v-list-item>
                 </router-link>
 
+				<router-link to="/admin">
+                    <v-list-item>
+                        <v-list-item-icon>
+                            <v-icon>mdi-wrench</v-icon>
+                        </v-list-item-icon>
+                        <v-list-item-content>Admin</v-list-item-content>
+                    </v-list-item>
+                </router-link>
+
                 <br><hr><br>
 
                 <v-list-item>
-                    <v-list-item-conten>
+                    <v-list-item-content>
                         <v-list-item-title>Thesis: DnD-Table</v-list-item-title>
                         <v-list-item-subtitle>Livia Löw</v-list-item-subtitle>
                         <v-list-item-subtitle>Tobias Herbitschek</v-list-item-subtitle>
                         <v-list-item-subtitle>Katharina Weinberger</v-list-item-subtitle>
                         <v-list-item-subtitle>© 2022 - 2023</v-list-item-subtitle>
-                    </v-list-item-conten>
+                    </v-list-item-content>
                 </v-list-item>
                 </v-list-item-group>
             </v-list>
