@@ -27,6 +27,19 @@
         </v-row>
         <br>
         <br>
+        <hr>
+        <br>
+        <br>
+        <v-row>
+          <v-col class="col-6 col-md-3 col-lg-2" v-for="weapon in character.weapons" :key="weapon.name">
+            <Weapon :weapon="weapons[weapon]"/>
+          </v-col>
+        </v-row>
+        <br>
+        <br>
+        <hr>
+        <br>
+        <br>
         <Quotes v-bind:quotes="character.quotes"/>
         <br>
       </v-container>
@@ -45,6 +58,8 @@
   import SavingThrows from "@/components/SavingThrows.vue";
   import Quotes from "@/components/Quotes.vue";
   import Login from "@/components/Login.vue";
+  import Weapon from "@/components/Weapon.vue";
+
   
   export default {
     name: "Home",
@@ -56,7 +71,8 @@
       SavingThrows,
       CharacterCard,
       Login,
-      Quotes
+      Quotes,
+      Weapon
     },
     computed: {
         registered() {
@@ -64,7 +80,10 @@
         },
         character() {
             return this.$store.state.character[0];
-        } 
+        },
+        weapons() {
+          return this.$store.state.weapons
+        }
     }
   };
   </script>

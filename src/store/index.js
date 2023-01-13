@@ -312,7 +312,8 @@ export default new Vuex.Store({
             name: "other profiencies and languages",
             quote: "other profiencies and languages quote"
           }
-        ]
+        ],
+        weapons: [0, 2, 3]
       },
       {
         name: "Ätzender Tintenkiller",
@@ -520,7 +521,8 @@ export default new Vuex.Store({
             value: "+1",
             selected: false
           },
-        ]
+        ],
+        weapons: [1, 2]
       },
       {
         name: "Leeres Wasserglas",
@@ -728,7 +730,8 @@ export default new Vuex.Store({
             value: "+1",
             selected: false
           },
-        ]
+        ],
+        weapons: [1, 2, 3]
       },
       {
         name: "Meow die Superkatze",
