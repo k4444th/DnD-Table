@@ -1,65 +1,68 @@
 <template>
-	<div>
-		<Hero />
-		<br>
-		<v-container v-if="registered">
-			<CharacterCard v-bind:character="character" v-bind:name="true" v-bind:avatar="true" />
+	<v-card>
+		<div v-if="character">
+			<CharacterCard v-bind:character="character" />
 			<br>
-			<v-row class="mt-3">
-				<SkillsAndModifiers v-bind:skills="character.skills" v-bind:size="'big'" />
-			</v-row>
-			<br>
-			<v-row class="mt-3">
-				<Combat v-bind:combat="character.combat" />
-
-				<v-col class="d-none d-md-block mt-md-6" cols="4 offset-1">
+			<SkillsAndModifiers v-bind:skills="character.skills" v-bind:size="'big'" />
+			<Combat v-bind:combat="character.combat" />
+			<v-row>
+				<v-col>
 					<Proficiencies v-bind:proficiencies="character.skill_proficiencies" />
-					<br>
+				</v-col>
+				<v-col>
 					<SavingThrows v-bind:combat="character.combat" />
 				</v-col>
-
 			</v-row>
-			<br>
 			<br>
 			<Quotes v-bind:quotes="character.details" />
 			<br>
-		</v-container>
-		<v-container v-else>
-			<Login />
-		</v-container>
-	</div>
+		</div>
+		<div v-else>
+			<v-skeleton-loader type="card, article, date-picker" />
+		</div>
+	</v-card>
 </template>
 
 <script>
-import Hero from "@/components/Hero.vue";
 import SkillsAndModifiers from "@/components/SkillsAndModifiers.vue";
 import Combat from "@/components/Combat.vue";
 import CharacterCard from "@/components/CharacterCard.vue";
 import Proficiencies from "@/components/Proficiencies.vue";
 import SavingThrows from "@/components/SavingThrows.vue";
 import Quotes from "@/components/Quotes.vue";
-import Login from "@/components/Login.vue";
+
+import axios from 'axios';
+
 
 export default {
 	name: "Home",
+	data() {
+		return {
+			character: null
+		}
+	},
+	props: {
+		characterId: {
+			type: String, required: true
+		}
+	},
+	methods: {
+		async fetchCharacter() {
+			const response = await axios.get(`${process.env.VUE_APP_DND_API_ENDPOINT}/characters/id/${this.characterId}`);
+			console.log(response);
+
+			this.character = response.data;
+		}
+	},
+	mounted() { this.fetchCharacter() },
 	components: {
-		Hero,
 		SkillsAndModifiers,
 		Combat,
 		Proficiencies,
 		SavingThrows,
 		CharacterCard,
-		Login,
 		Quotes
 	},
-	computed: {
-		registered() {
-			return this.$store.state.registered;
-		},
-		character() {
-			return this.$store.state.character[0];
-		}
-	}
 };
 </script>
 
