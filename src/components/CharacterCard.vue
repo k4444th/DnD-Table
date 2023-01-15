@@ -2,7 +2,16 @@
     <v-card class="mx-auto" outlined>
         <v-list-item>
             <v-list-item-content>
-                <v-list-item-title class="text-h5 mb-1" v-if="name">{{ character.name }} <Dice class="float-right"/></v-list-item-title>
+                <v-list-item-title class="text-h5 mb-1">
+                    <v-row>
+                        <v-col cols="10">
+                            {{ character.name }}
+                        </v-col>
+                        <v-col cols="2">
+                            <Dice class="float-right"/>
+                        </v-col>
+                    </v-row>
+                </v-list-item-title>
                 <div class="mb-5">
                     <v-chip class="mr-2 mr-sm-5 mt-3">Race: {{ character.generalInformation.race }}</v-chip>
                     <v-chip class="mr-2 mr-sm-5 mt-3">Class: {{ character.generalInformation.class }}</v-chip>
