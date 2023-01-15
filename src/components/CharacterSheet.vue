@@ -43,15 +43,28 @@ export default {
 	},
 	props: {
 		characterId: {
-			type: String, required: true
+			type: String
+		},
+		characterOverride: {
+			default() {
+				return false;
+			}
 		}
 	},
 	methods: {
-		async fetchCharacter() {
-			const response = await axios.get(`${process.env.VUE_APP_DND_API_ENDPOINT}/characters/id/${this.characterId}`);
-			console.log(response);
 
-			this.character = response.data;
+		async fetchCharacter() {
+
+			if (this.characterOverride) {
+				this.character = this.characterOverride;
+			} else {
+				const response = await axios.get(`${process.env.VUE_APP_DND_API_ENDPOINT}/characters/id/${this.characterId}`);
+				console.log(response);
+
+				this.character = response.data;
+			}
+
+
 		}
 	},
 	mounted() { this.fetchCharacter() },
