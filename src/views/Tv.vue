@@ -1,6 +1,6 @@
 <template>
     <div class="image">
-        <img src="./../../public/img/maps/map1.jpeg">
+        <img src="./../../public/img/maps/map2.jpeg">
     </div>
 </template>
 
