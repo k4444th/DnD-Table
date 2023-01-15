@@ -28,9 +28,26 @@
             <br><br>
         </v-row>
         <br>
+        <hr>
+        <br>
+        <v-row>
+          <v-col class="col-12 col-md-6 col-lg-4" v-for="weapon in character.weapons" :key="weapon.name">
+            <Weapon :weapon="weapons[weapon]"/>
+          </v-col>
+        </v-row>
+        <br>
+        <hr>
+        <br>
 
+        <v-dialog transition="dialog-bottom-transition" max-width="600">
+            <template v-slot:activator="{ on, attrs }">
+                <v-btn color="primary" block v-bind="attrs" v-on="on">Quotes</v-btn>
+            </template>
+            <template v-slot:default="dialog">
+                <v-card>
+                    <v-toolbar color="primary" dark><span class="text-h5">Quotes</span></v-toolbar>
+                    <br>
                     <Quotes v-bind:quotes="character.quotes"/>
-
     </v-card>
   </template>
   
@@ -43,6 +60,7 @@
   import SavingThrows from "@/components/SavingThrows.vue";
   import EditPlayer from "./EditPlayer.vue";
   import Quotes from "./Quotes.vue";
+  import Weapon from "@/components/Weapon.vue";
 
   export default {
     props: {
@@ -55,7 +73,13 @@
         Proficiencies,
         SavingThrows,
         EditPlayer,
-        Quotes
+        Quotes,
+        Weapon
+    },
+    computed: {
+        weapons() {
+          return this.$store.state.weapons
+        }
     }
   };
   </script>

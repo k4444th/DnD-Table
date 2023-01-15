@@ -28,9 +28,14 @@
 </template>
 
 <script>
+  import Dice from "@/components/Dice.vue";
+
     export default {
         props: {
             character: Object,
+        },
+        components: {
+            Dice
         },
         computed: {
             dark() {
@@ -46,5 +51,8 @@
     }
     .combats {
         display: flex !important;
+    }
+    .float-right {
+        float: right;
     }
 </style>
