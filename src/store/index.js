@@ -21,7 +21,7 @@ export default new Vuex.Store({
 
     previews: [
       {name: "create", icon: "mdi-pencil-outline", url: "/gamemaster"},
-      {name: "join", icon: "mdi-account-plus-outline", url: "/charactersheet"},
+      {name: "join", icon: "mdi-account-plus-outline", url: "/player"},
       {name: "TV", icon: "mdi-television", url: "/tv"},
     ],
 

@@ -48,7 +48,7 @@
                     </v-list-item>
                 </router-link>
 
-                <router-link to="/charactersheet">
+                <router-link to="/player">
                     <v-list-item>
                         <v-list-item-icon>
                             <v-icon>mdi-account-plus-outline</v-icon>
