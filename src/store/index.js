@@ -20,10 +20,14 @@ export default new Vuex.Store({
     ],
 
     previews: [
-      {name: "watch", icon: "mdi-eye-outline", url: "/about"},
       {name: "create", icon: "mdi-pencil-outline", url: "/gamemaster"},
       {name: "join", icon: "mdi-account-plus-outline", url: "/charactersheet"},
       {name: "TV", icon: "mdi-television", url: "/tv"},
+    ],
+
+    maps: [
+      "./../..public/img/maps/map1",
+      "./../..public/img/maps/map2"
     ],
 
     wotd: 0,
@@ -82,7 +86,7 @@ export default new Vuex.Store({
     character: [
       {
         name: "Blablablub der Wackelpudding",
-        avatar: "public/img/shapes/avatar.jpg",
+        avatar: "./../..public/img/shapes/avatar.jpg",
         generalInformation: {
           race: "Deamon",
           class: "Purple Caterpillar",
