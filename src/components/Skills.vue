@@ -2,21 +2,22 @@
 	<v-layout align-center justify-center>
         <v-dialog transition="dialog-bottom-transition" max-width="600">
         <template v-slot:activator="{ on, attrs }">
-            <v-btn color="primary" block v-bind="attrs" v-on="on">Saving Throws</v-btn>
+            <v-btn color="primary" block v-bind="attrs" v-on="on">Skills</v-btn>
         </template>
         <template v-slot:default="dialog">
             <v-card>
-                <v-toolbar color="primary" dark><span class="text-h5">Saving Throws</span></v-toolbar>
+                <v-toolbar color="primary" dark><span class="text-h5">Skills</span></v-toolbar>
                 <v-card-text class="pa-sm-12 pa-6">
-                    <v-radio-group value="true">
-                        <v-radio v-for="savingThrow in savingThrows" :key="savingThrow.name" disabled="true" :off-icon="savingThrow.selected ? '$radioOn' : '$radioOff'">
+                    <v-radio-group>
+                        <v-radio v-for="skill in skills" :key="skill.name" disabled="false" :off-icon="skill.selected ? '$radioOn' : '$radioOff'">
                             <template v-slot:label>
-                                <div>
-                                    <div class="value text-center">{{ savingThrow.value }}</div>
-                                    <div class="savingThrow">
-                                        <strong class="primary--text">{{ savingThrow.name }}</strong>
-                                    </div>
+                              <div>
+                                <div class="value text-center">{{ skill.value }}</div>
+                                <div class="skill">
+                                    <strong class="primary--text">{{ skill.name }}</strong>
+                                    <span> ({{ skill.skill }})</span>
                                 </div>
+                              </div>
                             </template>
                         </v-radio>
                     </v-radio-group>
@@ -33,7 +34,7 @@
 <script>
 export default {
 	props: {
-		savingThrows: Object
+		skills: Object
 	},
 	computed: {
 		dark() {
@@ -48,7 +49,10 @@ export default {
         min-width: 50px;
         display: inline-block;
     }
-    .savingThrow {
+    .skill {
         display: inline-block;
+    }
+    .theme--dark.v-icon {
+        color: grey !important;
     }
 </style>
