@@ -11,7 +11,7 @@
             </v-col>
         </v-row>
         <br>
-        <v-row class="mt-3">
+        <v-row class="mt-3 align-center">
           <v-col v-for="trait in character.traits" :key="trait.name" cols="4" md="2" class="traits">
             <Traits v-bind:trait="trait"/>
           </v-col>
@@ -19,21 +19,14 @@
             <Skills v-bind:skills="character.skills"/>
             <br>
             <SavingThrows v-bind:savingThrows="character.savingThrows"/>
+            <br>
+            <Weapons :weapons="character.weapons"/>
           </v-col>
           <v-row class="d-md-none d-xs-flex mt-7 mr-2 ml-2">
             <v-col cols="6" class="pa-2"><Skills v-bind:skills="character.skills"/></v-col>
             <v-col cols="6" class="pa-2"><SavingThrows v-bind:savingThrows="character.savingThrows"/></v-col>
+            <v-col cols="12" class="pa-2"><Weapons :weapons="character.weapons"/></v-col>
           </v-row>
-        </v-row>
-        <br>
-        <br>
-        <hr>
-        <br>
-        <br>
-        <v-row>
-          <v-col class="col-6 col-md-3 col-lg-2" v-for="weapon in character.weapons" :key="weapon.name">
-            <Weapon :weapon="weapons[weapon]"/>
-          </v-col>
         </v-row>
         <br>
         <br>
@@ -58,7 +51,7 @@
   import SavingThrows from "@/components/SavingThrows.vue";
   import Quotes from "@/components/Quotes.vue";
   import Login from "@/components/Login.vue";
-  import Weapon from "@/components/Weapon.vue";
+  import Weapons from "@/components/Weapons.vue";
 
   
   export default {
@@ -72,7 +65,7 @@
       CharacterCard,
       Login,
       Quotes,
-      Weapon
+      Weapons,
     },
     computed: {
         registered() {
@@ -81,9 +74,6 @@
         character() {
             return this.$store.state.character[0];
         },
-        weapons() {
-          return this.$store.state.weapons
-        }
     }
   };
   </script>
