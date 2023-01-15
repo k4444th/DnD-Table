@@ -3,6 +3,8 @@
       <Hero/>
       <br>
       <v-container v-if="registered">
+        <Dice class="d-flex justify-center"/>
+        <br>
         <v-row>
             <v-col v-for="character in characters" :key="character[0]" class="col-12 col-sm-6">
               <GamemasterPreview v-bind:character="character"/>
@@ -21,12 +23,14 @@
   import Hero from "@/components/Hero.vue";
   import Login from "@/components/Login.vue";
   import GamemasterPreview from "@/components/GamemasterPreview.vue";
+  import Dice from "@/components/Dice.vue";
   
   export default {
     name: "Gamemaster",
     components: {
         Hero,
         Login,
+        Dice,
         GamemasterPreview,
     },
     computed: {

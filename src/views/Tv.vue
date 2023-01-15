@@ -1,24 +1,26 @@
 <template>
-    <div>
-      <Hero/>
-      <br>
-      <v-container>
-        <Dice/>
-      </v-container>
+    <div class="image">
+        <img src="./../../public/img/maps/map2.jpeg">
     </div>
-  </template>
-  
-  <script>
-  // @ is an alias to /src
-  import Hero from "@/components/Hero.vue";
-  import Dice from "@/components/Dice.vue";
-  
-  export default {
-    name: "Tv",
-    components: {
-      Hero,
-      Dice
-    }
-  };
-  </script>
-  
+</template>
+
+<style scoped>
+img {
+  max-width: 100%;
+}
+@media screen and (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
+  .image {
+    transform: rotate(-90deg);
+    transform-origin: left top;
+    width: 100vh;
+    height: 100vw;
+    overflow-x: hidden;
+    position: absolute;
+    top: 100%;
+    left: 0;
+  }
+  img {
+    max-width: 90%;
+  }
+}
+</style>

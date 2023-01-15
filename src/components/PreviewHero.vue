@@ -2,7 +2,7 @@
   <v-parallax src="./../../public/img/hero.jpeg" height="600">
       <v-container>
         <v-row>
-          <v-col v-for="preview in previews" :key="preview.name" cols="6" sm="3">
+          <v-col v-for="preview in previews" :key="preview.name" cols="12" sm="4">
             <Preview v-bind:preview="preview"/>
           </v-col>
         </v-row>

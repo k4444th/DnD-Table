@@ -14,11 +14,11 @@
 
         <v-dialog transition="dialog-bottom-transition" max-width="600">
         <template v-slot:activator="{ on, attrs }">
-            <v-btn color="primary" block v-bind="attrs" v-on="on">Skills</v-btn>
+            <v-btn color="primary" block v-bind="attrs" v-on="on">Properties</v-btn>
         </template>
         <template v-slot:default="dialog">
             <v-card>
-                <v-toolbar color="primary" dark><span class="text-h5">Properties</span></v-toolbar>
+                <v-toolbar color="primary" dark><span class="text-h5">Properties: {{ weapon.name }}</span></v-toolbar>
                 <v-card-text class="pa-sm-12 pa-6">
                     <div v-for="property in weapon.properties" :key="property.name">
                         <v-row>
