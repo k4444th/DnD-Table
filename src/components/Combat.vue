@@ -1,31 +1,33 @@
 <template>
 	<v-layout align-center justify-center>
-		<div class="stat-container">
-			<div class="image-container">
-				<img src="./../../public/img/shapes/shield2.svg" alt="" class="stat-shape"
-					:class="dark ? 'dark-theme' : ''" />
-				<span class="value">{{ combat.armor_class }}</span>
-			</div>
-			<span>Armor Class</span>
-		</div>
-
-		<div class="stat-container">
-			<div class="image-container">
-				<img src="./../../public/img/shapes/rectangle1.svg" alt="" class="stat-shape"
-					:class="dark ? 'dark-theme' : ''" />
-				<span class="value">{{ combat.initiative }}</span>
-			</div>
-			<span>Initiative</span>
-		</div>
-
-		<div class="stat-container">
-			<div class="image-container">
-				<img src="./../../public/img/shapes/rectangle1.svg" alt="" class="stat-shape"
-					:class="dark ? 'dark-theme' : ''" />
-				<span class="value">{{ combat.speed }}</span>
-			</div>
-			<span>Speed</span>
-		</div>
+		<v-row>
+			<v-col cols="4" class="stat-container">
+				<div class="image-container">
+					<img src="./../../public/img/shapes/shield2.svg" alt="" class="stat-shape"
+						:class="dark ? 'dark-theme' : ''" />
+					<span class="value">{{ combat.armor_class }}</span>
+				</div>
+				<span>Armor Class</span>
+			</v-col>
+	
+			<v-col cols="4" class="stat-container">
+				<div class="image-container">
+					<img src="./../../public/img/shapes/rectangle1.svg" alt="" class="stat-shape"
+						:class="dark ? 'dark-theme' : ''" />
+					<span class="value">{{ combat.initiative }}</span>
+				</div>
+				<span>Initiative</span>
+			</v-col>
+	
+			<v-col cols="4" class="stat-container">
+				<div class="image-container">
+					<img src="./../../public/img/shapes/rectangle1.svg" alt="" class="stat-shape"
+						:class="dark ? 'dark-theme' : ''" />
+					<span class="value">{{ combat.speed }}</span>
+				</div>
+				<span>Speed</span>
+			</v-col>
+		</v-row>
 	</v-layout>
 </template>
 

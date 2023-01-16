@@ -1,7 +1,7 @@
 <template>
 	<v-container>
 		<v-row>
-			<v-col v-for="skill in skills" :key="skill.name" class="col-4 col-md-2">
+			<v-col v-for="skill in skills" :key="skill.name" class="col-4 col-lg-2">
 				<div class="stat-container">
 					<div class="image-container">
 						<img src="./../../public/img/shapes/traits1.svg" alt="" class="stat-shape"

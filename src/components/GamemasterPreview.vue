@@ -6,34 +6,14 @@
 		</div>
 		<br>
 		<CharacterCard v-bind:character="character" v-bind:name="false" v-bind:avatar="false" />
-		<v-row class="mt-3">
-			<v-col v-for="trait in character.traits" :key="trait.name" cols="4" class="traits">
-				<Combat v-bind:trait="trait" />
-			</v-col>
+		<Combat v-bind:combat="character.combat" />
+		<SkillsAndModifiers v-bind:skills="character.skills" v-bind:size="'small'" />
+		<v-row class="mt-7 mr-2 ml-2">
+			<v-col cols="6" class="pa-2"><Traits v-bind:skills="character.traits"/></v-col>
+			<v-col cols="6" class="pa-2"><Weapons :items="character.items"/></v-col>
+			<v-col cols="6" class="pa-2"><Proficiencies v-bind:proficiencies="character.skill_proficiencies" /></v-col>
+			<v-col cols="6" class="pa-2"><SavingThrows v-bind:combat="character.combat" /></v-col>
 		</v-row>
-		<v-row class="mt-3">
-			<v-col v-for="skill in character.skillsAndModifier" :key="skill.name" cols="4" md="2" class="traits">
-				<SkillsAndModifiers v-bind:skill="skill" v-bind:size="'small'" class="d-none d-md-flex" />
-				<SkillsAndModifiers v-bind:skill="skill" v-bind:size="'big'" class=" d-sm-flex d-md-none" />
-			</v-col>
-		</v-row>
-		<div class="d-md-none d-xs-flex mt-7 mr-2 ml-2">
-			<Proficiencies v-bind:skills="character.skills" />
-			<br>
-			<SavingThrows v-bind:savingThrows="character.savingThrows" />
-		</div>
-		<v-row class="d-none d-md-block mt-md-6">
-			<v-col cols="6" class="pa-2 float-left">
-				<Proficiencies v-bind:skills="character.skills" />
-			</v-col>
-			<v-col cols="6" class="pa-2 float-left">
-				<SavingThrows v-bind:savingThrows="character.savingThrows" />
-			</v-col>
-			<br><br>
-		</v-row>
-		<br>
-		<hr>
-		<br>
 		<v-row>
 			<v-col class="col-12 col-md-6 col-lg-4" v-for="weapon in character.weapons" :key="weapon.name">
 				<Weapon :weapon="weapons[weapon]" />
@@ -68,6 +48,8 @@ import SavingThrows from "@/components/SavingThrows.vue";
 import EditPlayer from "./EditPlayer.vue";
 import Quotes from "./Quotes.vue";
 import Weapon from "@/components/Weapon.vue";
+import Weapons from "@/components/Weapons.vue";
+import Traits from "@/components/Traits.vue";
 
 export default {
 	props: {
@@ -81,7 +63,9 @@ export default {
 		SavingThrows,
 		EditPlayer,
 		Quotes,
-		Weapon
+		Weapon,
+		Traits,
+		Weapons
 	},
 	computed: {
 		weapons() {
