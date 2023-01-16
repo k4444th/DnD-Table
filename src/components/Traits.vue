@@ -33,7 +33,7 @@
 <script>
 export default {
 	props: {
-		traits: Object
+		traits: Array
 	},
 	computed: {
 		dark() {
