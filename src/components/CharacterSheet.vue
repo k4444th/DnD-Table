@@ -12,7 +12,7 @@
 				<v-col class="d-none d-md-block" cols="5">
 					<v-row>
 						<v-col cols="6">
-							<Skills v-bind:skills="character.skills"/>
+							<Skills v-bind:traits="character.traits"/>
 							<br>
 							<Weapons :weapons="character.weapons"/>
 						</v-col>
