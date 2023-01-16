@@ -1,27 +1,26 @@
 <template>
 	<div>
 		<v-card class="mx-auto">
-
-			<v-card-text>
-				<p class="text-h4 text--primary mb-0">{{ item.name }}</p>
-				<div>{{ item.type }}</div>
+			<v-card-text v-if="!loading">
+				<p class="text-h4 text--primary mb-0">{{ itemData.name }}</p>
+				<div>{{ itemData.type }}</div>
 				<v-chip-group>
-					<v-chip color="amber">{{ item.cost_gp + "GP" }}</v-chip>
-					<v-chip color="grey">{{ item.weight_lbs + "lbs" }}</v-chip>
+					<v-chip color="deep-orange darken-4">{{ itemData.cost_gp + "GP" }}</v-chip>
+					<v-chip color="grey">{{ itemData.weight_lbs + "lbs" }}</v-chip>
 				</v-chip-group>
 				<v-divider />
-				<p>{{ item.description }}</p>
+				<p>{{ itemData.description }}</p>
 				<v-expansion-panels>
 					<v-expansion-panel>
 						<v-expansion-panel-header v-on:click="toggleExpanded">
 							Details
 						</v-expansion-panel-header>
 						<v-expansion-panel-content v-if="expanded">
-							<div v-if="details">
+							<div v-if="itemData.details">
 								<v-list>
 									<v-list-item-group active-class="">
 
-										<v-list-item v-for="(value, key) in details" :key="key">
+										<v-list-item v-for="(value, key) in itemData.details" :key="key">
 											<v-list-item-icon v-if="icons[key]">
 												<v-icon v-text="icons[key]"></v-icon>
 											</v-list-item-icon>
@@ -41,13 +40,14 @@
 					</v-expansion-panel>
 				</v-expansion-panels>
 			</v-card-text>
-			<v-card-actions>
+			<v-skeleton-loader v-else type="card"></v-skeleton-loader>
+			<v-card-actions v-if="editable">
 				<v-chip-group>
-					<v-chip @click="copyToClipboard(item.id)">
+					<v-chip @click="copyToClipboard(itemData.id)">
 						<v-icon left>
 							mdi-content-copy
 						</v-icon>
-						ID: {{ item.id }}
+						ID: {{ itemData.id }}
 					</v-chip>
 				</v-chip-group>
 				<v-spacer></v-spacer>
@@ -64,7 +64,7 @@
 					</v-btn>
 					<v-toolbar-title>Edit Item</v-toolbar-title>
 				</v-toolbar>
-				<ItemEditor :itemId="item.id" @closeDialog="dialog = false" />
+				<ItemEditor v-if="editable" :itemId="itemData.id" @closeDialog="dialog = false" />
 
 			</v-card>
 		</v-dialog>
@@ -85,15 +85,33 @@ export default {
 	props: {
 		item: {
 			type: Object,
-			required: true,
+			required: false,
 		},
+		id: {
+			type: String
+		},
+		local: {
+			type: Boolean,
+			default: false
+		},
+		editable: {
+			type: Boolean,
+			default: true
+		}
+	},
+	mounted() {
+		if (this.item) {
+			this.itemData = this.item;
+		} else {
+			this.fetchDetails();
+		}
 	},
 	data() {
 		return {
-			loading: false,
+			loading: true,
 			expanded: false,
-			details: null,
 			dialog: false,
+			itemData: {},
 			icons: {
 				damage_roll: 'mdi-sword-cross'
 			}
@@ -110,14 +128,22 @@ export default {
 		},
 		toggleExpanded() {
 			this.expanded = !this.expanded;
-			if (this.expanded && !this.details) {
+			if (this.expanded && !this.itemData.details) {
 				this.fetchDetails()
 			}
 		},
 		async fetchDetails() {
-			const response = await axios.get(`${process.env.VUE_APP_DND_API_ENDPOINT}/items/id/${this.item.id}`);
-			console.log(response.data)
-			this.details = response.data.details;
+
+			if (this.local && this.id) {
+				this.itemData = this.$store.state.items.filter(x => x.id == this.id)[0];
+			} else {
+				let id = this.item ? this.item.id : this.id;
+
+				const response = await axios.get(`${process.env.VUE_APP_DND_API_ENDPOINT}/items/id/${id}`);
+				this.itemData = response.data;
+			}
+
+			this.loading = false;
 		},
 	},
 };

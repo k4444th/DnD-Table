@@ -12,9 +12,9 @@
 				<v-col class="d-none d-md-block" cols="5">
 					<v-row>
 						<v-col cols="6">
-							<Skills v-bind:skills="character.skills"/>
+							<Traits v-bind:traits="character.traits"/>
 							<br>
-							<Weapons :weapons="character.weapons"/>
+							<Weapons :items="character.items"/>
 						</v-col>
 						<v-col cols="6">
 							<Proficiencies v-bind:proficiencies="character.skill_proficiencies" />
@@ -24,8 +24,8 @@
 					</v-row>
 				</v-col>
 				<v-row class="d-md-none d-xs-flex mt-7 mr-2 ml-2">
-					<v-col cols="6" class="pa-2"><Skills v-bind:skills="character.skills"/></v-col>
-					<v-col cols="6" class="pa-2"><Weapons :weapons="character.weapons"/></v-col>
+					<v-col cols="6" class="pa-2"><Traits v-bind:skills="character.traits"/></v-col>
+					<v-col cols="6" class="pa-2"><Weapons :items="character.items"/></v-col>
 					<v-col cols="6" class="pa-2"><Proficiencies v-bind:proficiencies="character.skill_proficiencies" /></v-col>
 					<v-col cols="6" class="pa-2"><SavingThrows v-bind:combat="character.combat" /></v-col>
 				</v-row>
@@ -52,7 +52,7 @@ import CharacterCard from "@/components/CharacterCard.vue";
 import Proficiencies from "@/components/Proficiencies.vue";
 import SavingThrows from "@/components/SavingThrows.vue";
 import Quotes from "@/components/Quotes.vue";
-import Skills from "@/components/Skills.vue";
+import Traits from "@/components/Traits.vue";
 import Weapons from "@/components/Weapons.vue";
 
 import axios from 'axios';
@@ -76,7 +76,6 @@ export default {
 		}
 	},
 	methods: {
-
 		async fetchCharacter() {
 
 			if (this.characterOverride) {
@@ -87,8 +86,6 @@ export default {
 
 				this.character = response.data;
 			}
-
-
 		}
 	},
 	mounted() { this.fetchCharacter() },
@@ -99,7 +96,7 @@ export default {
 		SavingThrows,
 		CharacterCard,
 		Quotes,
-		Skills,
+		Traits,
 		Weapons
 	},
 };
