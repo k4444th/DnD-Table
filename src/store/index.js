@@ -19,18 +19,18 @@ export default new Vuex.Store({
 			}
 		],
 
-    previews: [
-      {name: "create", icon: "mdi-pencil-outline", url: "/gamemaster"},
-      {name: "join", icon: "mdi-account-plus-outline", url: "/player"},
-      {name: "TV", icon: "mdi-television", url: "/tv"},
-    ],
+		previews: [
+			{name: "create", icon: "mdi-pencil-outline", url: "/gamemaster"},
+			{name: "join", icon: "mdi-account-plus-outline", url: "/player"},
+			{name: "TV", icon: "mdi-television", url: "/tv"},
+		],
 
-    maps: [
-      "./../..public/img/maps/map1",
-      "./../..public/img/maps/map2"
-    ],
+		maps: [
+			"./../..public/img/maps/map1",
+			"./../..public/img/maps/map2"
+		],
 
-    wotd: 0,
+		wotd: 0,
 
 		weapons: [
 			{
@@ -80,6 +80,262 @@ export default new Vuex.Store({
 					{ name: "weight properties", score: "2lb" },
 					{ name: "simple melee weoapons", score: "Light" }
 				]
+			}
+		],
+
+		items: [
+			{
+				"name": "Disguise Kit",
+				"description": "This pouch of cosmetics, hair dye, and small props lets you create disguises that change your physical appearance. Proficiency with this kit lets you add your proficiency bonus to any ability checks you make to create a visual disguise.",
+				"cost_gp": "25",
+				"weight_lbs": "3",
+				"type": "Tool",
+				"image_url": null,
+				"id": "b8095b2b-f272-462c-8773-5b0e0a5b75ab",
+				"properties": [],
+				"details": {
+					"tool_type": "Kit"
+				}
+			},
+			{
+				"name": "Crowbar",
+				"description": "Using a crowbar grants advantage to Strength checks where the crowbar's leverage can be applied.",
+				"cost_gp": "2",
+				"weight_lbs": "5",
+				"type": "Adventuring Gear",
+				"image_url": null,
+				"id": "61ad9968-6cb8-4c79-84da-a7ece51a5118",
+				"properties": [],
+				"details": {
+					"gear_type": "Equipment",
+					"ammo_type": null,
+					"container_capacity": null
+				}
+			},
+			{
+				"name": "Hammer",
+				"description": "This one-handed hammer with an iron head is useful for pounding pitons into a wall.",
+				"cost_gp": "1",
+				"weight_lbs": "3",
+				"type": "Adventuring Gear",
+				"image_url": null,
+				"id": "56ec76fd-d051-4ba7-b9eb-77534172918e",
+				"properties": [],
+				"details": {
+					"gear_type": "Equipment",
+					"ammo_type": null,
+					"container_capacity": null
+				}
+			},
+			{
+				"name": "Torch",
+				"description": "A torch burns for 1 hour, providing bright light in a 20-foot radius and dim light for an additional 20 feet. If you make a melee attack with a burning torch and hit, it deals 1 fire damage.",
+				"cost_gp": "0.0001",
+				"weight_lbs": "1",
+				"type": "Adventuring Gear",
+				"image_url": null,
+				"id": "f9f65824-9208-44af-a921-959fa057d459",
+				"properties": [],
+				"details": {
+					"gear_type": "Equipment",
+					"ammo_type": null,
+					"container_capacity": null
+				}
+			},
+			{
+				"name": "Piton",
+				"description": "When a wall doesn’t offer handholds and footholds, you can make your own. A piton is a steel spike with an eye through which you can loop a rope.",
+				"cost_gp": "0.0005",
+				"weight_lbs": "0.25",
+				"type": "Adventuring Gear",
+				"image_url": null,
+				"id": "08e10634-85cc-4660-a275-fd484c359d83",
+				"properties": [],
+				"details": {
+					"gear_type": "Equipment",
+					"ammo_type": null,
+					"container_capacity": null
+				}
+			},
+			{
+				"name": "Tinderbox",
+				"description": "This small container holds flint, fire steel, and tinder (usually dry cloth soaked in light oil) used to kindle a fire. Using it to light a torch -- or anything else with abundant, exposed fuel -- takes an action. Lighting any other fire takes 1 minute.",
+				"cost_gp": "0.05",
+				"weight_lbs": "1",
+				"type": "Adventuring Gear",
+				"image_url": null,
+				"id": "a849bdfd-bb67-40e8-bf6d-dd9c0c9ae4fa",
+				"properties": [],
+				"details": {
+					"gear_type": "Equipment",
+					"ammo_type": null,
+					"container_capacity": null
+				}
+			},
+			{
+				"name": "Waterskin",
+				"description": "A waterskin can hold 4 pints of liquid.",
+				"cost_gp": "0.05",
+				"weight_lbs": "1",
+				"type": "Adventuring Gear",
+				"image_url": null,
+				"id": "36b93b7e-f90d-497f-b99c-ca497e895fab",
+				"properties": [],
+				"details": {
+					"gear_type": "Container",
+					"ammo_type": null,
+					"container_capacity": "4 pints"
+				}
+			},
+			{
+				"name": "Battleaxe",
+				"description": "Proficiency with a battleaxe allows you to add your proficiency bonus to the attack roll for any attack you make with it.",
+				"cost_gp": "10",
+				"weight_lbs": "4",
+				"type": "Weapon",
+				"image_url": null,
+				"id": "18464537-20cb-4d5d-85d3-d0b9086fd435",
+				"properties": [
+					{
+						"property_id": "37f92bc2-1d3a-42f1-b2ae-2cba1beed5cb",
+						"name": "Versatile",
+						"details": "1d10",
+						"description": "This weapon can be used with one or two hands. A damage value in parentheses appears with the property--the damage when the weapon is used with two hands to make a melee attack."
+					}
+				],
+				"details": {
+					"ranged": false,
+					"proficiency": "battleaxe",
+					"damage_roll": "1d8",
+					"damage_type": "slashing",
+					"ammo_type": ""
+				}
+			},
+			{
+				"name": "Rope, Hempen (50 feet)",
+				"description": "Rope, has 2 hit points and can be burst with a DC 17 Strength check.",
+				"cost_gp": "1",
+				"weight_lbs": "10",
+				"type": "Adventuring Gear",
+				"image_url": null,
+				"id": "5bc9fab4-a970-43dc-8eec-2768dabcd4b9",
+				"properties": [],
+				"details": {
+					"gear_type": "Utility",
+					"ammo_type": null,
+					"container_capacity": null
+				}
+			},
+			{
+				"name": "Backpack",
+				"description": "A backpack is a leather pack carried on the back, typically with straps to secure it. A backpack can hold 1 cubic foot/ 30 pounds of gear.\nYou can also strap items, such as a bedroll or a coil of rope, to the outside of a backpack.",
+				"cost_gp": "10",
+				"weight_lbs": "4",
+				"type": "Adventuring Gear",
+				"image_url": null,
+				"id": "01d56226-1bc0-4c0d-9684-09c26ccc7e87",
+				"properties": [],
+				"details": {
+					"gear_type": "Container",
+					"ammo_type": null,
+					"container_capacity": "1f³ / 30lbs"
+				}
+			},
+			{
+				"name": "Leather Armor",
+				"description": "The breastplate and shoulder protectors of this armor are made of leather that has been stiffened by being boiled in oil. The rest of the armor is made of softer and more flexible materials.",
+				"cost_gp": "10",
+				"weight_lbs": "10",
+				"type": "Armor",
+				"image_url": null,
+				"id": "ca05dead-b3a1-4e46-b215-b5e07dddc470",
+				"properties": [],
+				"details": {
+					"armor_class": "11",
+					"stealth_disadvantage": false,
+					"strenght_requirement": null,
+					"armor_type": "Light",
+					"armor_class_mod_max": null,
+					"armor_class_mod": "dexterity"
+				}
+			},
+			{
+				"name": "Dungeoneer's Pack",
+				"description": "Includes a backpack, a crowbar, a hammer, 10 pitons, 10 torches, a tinderbox, 10 days of rations, and a waterskin. The pack also has 50 feet of hempen rope strapped to the side of it.",
+				"cost_gp": "12",
+				"weight_lbs": "61.5",
+				"type": "Equipment Pack",
+				"image_url": null,
+				"id": "7a4407d5-1a1e-43c7-af3a-6b1071aa5aaa",
+				"properties": [],
+				"details": {
+					"contents": [
+						{
+							"id": "61ad9968-6cb8-4c79-84da-a7ece51a5118",
+							"name": "Crowbar",
+							"amount": "1"
+						},
+						{
+							"id": "01d56226-1bc0-4c0d-9684-09c26ccc7e87",
+							"name": "Backpack",
+							"amount": "1"
+						},
+						{
+							"id": "56ec76fd-d051-4ba7-b9eb-77534172918e",
+							"name": "Hammer",
+							"amount": "1"
+						},
+						{
+							"id": "08e10634-85cc-4660-a275-fd484c359d83",
+							"name": "Piton",
+							"amount": "10"
+						},
+						{
+							"id": "f9f65824-9208-44af-a921-959fa057d459",
+							"name": "Torch",
+							"amount": "10"
+						},
+						{
+							"id": "a849bdfd-bb67-40e8-bf6d-dd9c0c9ae4fa",
+							"name": "Tinderbox",
+							"amount": "1"
+						},
+						{
+							"id": "36b93b7e-f90d-497f-b99c-ca497e895fab",
+							"name": "Waterskin",
+							"amount": "1"
+						},
+						{
+							"id": "5bc9fab4-a970-43dc-8eec-2768dabcd4b9",
+							"name": "Rope, Hempen (50 feet)",
+							"amount": "1"
+						}
+					]
+				}
+			},
+			{
+				"name": "Dagger",
+				"description": "A Dagger. Its pointy. Very.",
+				"cost_gp": "25",
+				"weight_lbs": "2",
+				"type": "Weapon",
+				"image_url": null,
+				"id": "02f991e5-52d7-4311-aad6-edc65013b702",
+				"properties": [
+					{
+						"property_id": "8636717e-b004-451e-9f6d-900075d7ba2d",
+						"name": "Thrown",
+						"details": "30/40",
+						"description": "If a weapon has the thrown property, you can throw the weapon to make a ranged attack. If the weapon is a melee weapon, you use the same ability modifier for that attack roll and damage roll that you would use for a melee attack with the weapon. For example, if you throw a handaxe, you use your Strength, but if you throw a dagger, you can use either your Strength or your Dexterity, since the dagger has the finesse property."
+					}
+				],
+				"details": {
+					"ranged": false,
+					"proficiency": "simple weapon",
+					"damage_roll": "1d4",
+					"damage_type": "piercing",
+					"ammo_type": ""
+				}
 			}
 		],
 
