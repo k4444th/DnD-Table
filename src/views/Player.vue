@@ -29,7 +29,7 @@ export default {
 			return this.$store.state.registered;
 		},
 		character() {
-			return this.$store.state.character[0];
+			return this.$store.state.character[1];
 		}
 	}
 };
