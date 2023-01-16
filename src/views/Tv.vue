@@ -1,14 +1,15 @@
 <template>
     <div class="image">
-        <img src="./../../public/img/maps/map2.jpeg">
+        <img src="./../../public/img/maps/map2.jpeg" class="align-center">
     </div>
 </template>
 
 <style scoped>
 img {
   max-width: 100%;
+  max-height: 90vh;
 }
-@media screen and (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
+@media screen and (max-width: 767px) and (orientation: portrait) {
   .image {
     transform: rotate(-90deg);
     transform-origin: left top;
