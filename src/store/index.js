@@ -343,13 +343,13 @@ export default new Vuex.Store({
 			{
 				"owner_id": "4a52d12b-c6b2-4372-b882-ea8085967bda",
 				"id": "f442f249-1271-4fe5-96fb-90f11003c001",
-				"name": "Orryn Daergel Jr. Jr.",
+				"name": "Orryn Daergel",
 				"level": 10,
 				"class": "Rougue",
 				"background": "Charlatan",
 				"race": "Forest Gnome",
 				"alignment": "Chaotic Neutral",
-				"xp": 100000,
+				"xp": 350,
 				"combat": {
 					"armor_class": 15,
 					"initiative": 4,
@@ -522,629 +522,199 @@ export default new Vuex.Store({
 				]
 			},
 			{
-				name: "Ätzender Tintenkiller",
-				avatar: "public/img/shapes/avatar.jpg",
-				generalInformation: {
-					race: "Schreibutensilien",
-					class: "Nervenaufreibend",
-					level: 59
+				"owner_id": "4a52d12b-c6b2-4372-b882-ea8085967bda",
+				"id": "f442f249-1271-4fe5-96fb-90f11003c001",
+				"name": "Meow die Superkatze",
+				"level": 10,
+				"class": "Rougue",
+				"background": "Charlatan",
+				"race": "Forest Gnome",
+				"alignment": "Chaotic Neutral",
+				"xp": 350,
+				"combat": {
+					"armor_class": 15,
+					"initiative": 4,
+					"speed": 25,
+					"hp": 25,
+					"hp_max": 25,
+					"hp_temp": 0,
+					"hit_dice": "1d8+4",
+					"death_save_success": 0,
+					"death_save_fail": 0
 				},
-				combats: {
-					hitpoints: 79,
-					xp: 39,
-					hitdice: 37
-				},
-				skillsAndModifier: [
+				"skills": [
 					{
-						name: "Strength",
-						shortname: "Str",
-						modifier: "-2",
-						skill: 7
+						"name": "Strength",
+						"value": 6,
+						"modifier": -1
 					},
 					{
-						name: "Dexterity",
-						shortname: "Dex",
-						modifier: "+4",
-						skill: 18
+						"name": "Dexterity",
+						"value": 18,
+						"modifier": 1
 					},
 					{
-						name: "Constitution",
-						shortname: "Con",
-						modifier: "+1",
-						skill: 13
+						"name": "Condition",
+						"value": 18,
+						"modifier": 2
 					},
 					{
-						name: "Intelligence",
-						shortname: "Int",
-						modifier: "0",
-						skill: 10
+						"name": "Intelligence",
+						"value": 19,
+						"modifier": 3
 					},
 					{
-						name: "Wisdom",
-						shortname: "Wis",
-						modifier: "+3",
-						skill: 16
+						"name": "Wisdom",
+						"value": 14,
+						"modifier": 4
 					},
 					{
-						name: "Charisma",
-						shortname: "Cha",
-						modifier: "+1",
-						skill: 12
-					},
-				],
-				traits: [
-					{
-						name: "Armor Class",
-						value: 15
-					},
-					{
-						name: "Initiative",
-						value: 0
-					},
-					{
-						name: "Speed",
-						value: 35
+						"name": "Charisma",
+						"value": 10,
+						"modifier": 5
 					}
 				],
-				skills: [
-					{
-						name: "Acrobatics",
-						skill: "Dex",
-						value: "+6",
-						selected: Boolean(true)
-					},
-					{
-						name: "Animal Handling",
-						skill: "Wis",
-						value: "+3",
-						selected: false
-					},
-					{
-						name: "Arcana",
-						skill: "Int",
-						value: "0",
-						selected: false
-					},
-					{
-						name: "Athletics",
-						skill: "Str",
-						value: "-3",
-						selected: false
-					},
-					{
-						name: "Deception",
-						skill: "Cha",
-						value: "+6",
-						selected: true
-					},
-					{
-						name: "History",
-						skill: "Int",
-						value: "0",
-						selected: false
-					},
-					{
-						name: "Insight",
-						skill: "Wis",
-						value: "+3",
-						selected: false
-					},
-					{
-						name: "Intimidation",
-						skill: "Cha",
-						value: "+1",
-						selected: false
-					},
-					{
-						name: "Investigation",
-						skill: "Int",
-						value: "0",
-						selected: false
-					},
-					{
-						name: "Medicine",
-						skill: "Wis",
-						value: "+3",
-						selected: false
-					},
-					{
-						name: "Nature",
-						skill: "Int",
-						value: "0",
-						selected: false
-					},
-					{
-						name: "Perception",
-						skill: "Wis",
-						value: "+5",
-						selected: true
-					},
-					{
-						name: "Performance",
-						skill: "Cha",
-						value: "+1",
-						selected: false
-					},
-					{
-						name: "Persuasion",
-						skill: "Cha",
-						value: "+3",
-						selected: true
-					},
-					{
-						name: "Religion",
-						skill: "Int",
-						value: "0",
-						selected: false
-					},
-					{
-						name: "Sleight of Hand",
-						skill: "Dex",
-						value: "+5",
-						selected: true
-					},
-					{
-						name: "Stealth",
-						skill: "Dex",
-						value: "+10",
-						selected: true
-					},
-					{
-						name: "Survival",
-						skill: "Wis",
-						value: "+3",
-						selected: false
-					}
-				],
-				savingThrows: [
-					{
-						name: "Strength",
-						value: "-2",
-						selected: false
-					},
-					{
-						name: "Dexterity",
-						value: "6",
-						selected: true
-					},
-					{
-						name: "Constitution",
-						value: "+1",
-						selected: false
-					},
-					{
-						name: "Intelligence",
-						value: "+2",
-						selected: true
-					},
-					{
-						name: "Wisdom",
-						value: "+2",
-						selected: false
-					},
-					{
-						name: "Charisma",
-						value: "+1",
-						selected: false
-					},
-				]
-			},
-			{
-				name: "Leeres Wasserglas",
-				avatar: "public/img/shapes/avatar.jpg",
-				generalInformation: {
-					race: "Getränk",
-					class: "Auffülbar",
-					level: 59
+				"skill_proficiencies": {
+					"strenght": false,
+					"dexterity": true,
+					"constitution": false,
+					"intelligence": false,
+					"wisdom": false,
+					"charisma": false,
+					"acrobatics": true,
+					"animal_handling": false,
+					"arcana": false,
+					"athletics": false,
+					"deception": true,
+					"history": false,
+					"insight": false,
+					"intimidation": false,
+					"investigation": false,
+					"medicine": false,
+					"nature": false,
+					"perception": true,
+					"performance": false,
+					"persuasion": false,
+					"religion": false,
+					"sleight_of_hand": true,
+					"stealth": true,
+					"survival": false,
+					"proficiency_bonus": 2
 				},
-				combats: {
-					hitpoints: 79,
-					xp: 39,
-					hitdice: 37
+				"details": {
+					"personality": "I'm a born gambler who can't resist taking a \nrisk for a potential payoff",
+					"ideals": "Creativity. I never run the same con twice. ",
+					"bonds": "I escaped poverty once by robbing an \nimportant person, and I'm wanted for it.",
+					"flaws": "I'm convinced that no one could ever fool me the way I fool others."
 				},
-				skillsAndModifier: [
-					{
-						name: "Strength",
-						shortname: "Str",
-						modifier: "-2",
-						skill: 7
-					},
-					{
-						name: "Dexterity",
-						shortname: "Dex",
-						modifier: "+4",
-						skill: 18
-					},
-					{
-						name: "Constitution",
-						shortname: "Con",
-						modifier: "+1",
-						skill: 13
-					},
-					{
-						name: "Intelligence",
-						shortname: "Int",
-						modifier: "0",
-						skill: 10
-					},
-					{
-						name: "Wisdom",
-						shortname: "Wis",
-						modifier: "+3",
-						skill: 16
-					},
-					{
-						name: "Charisma",
-						shortname: "Cha",
-						modifier: "+1",
-						skill: 12
-					},
-				],
-				traits: [
-					{
-						name: "Armor Class",
-						value: 15
-					},
-					{
-						name: "Initiative",
-						value: 0
-					},
-					{
-						name: "Speed",
-						value: 35
-					}
-				],
-				skills: [
-					{
-						name: "Acrobatics",
-						skill: "Dex",
-						value: "+6",
-						selected: Boolean(true)
-					},
-					{
-						name: "Animal Handling",
-						skill: "Wis",
-						value: "+3",
-						selected: false
-					},
-					{
-						name: "Arcana",
-						skill: "Int",
-						value: "0",
-						selected: false
-					},
-					{
-						name: "Athletics",
-						skill: "Str",
-						value: "-3",
-						selected: false
-					},
-					{
-						name: "Deception",
-						skill: "Cha",
-						value: "+6",
-						selected: true
-					},
-					{
-						name: "History",
-						skill: "Int",
-						value: "0",
-						selected: false
-					},
-					{
-						name: "Insight",
-						skill: "Wis",
-						value: "+3",
-						selected: false
-					},
-					{
-						name: "Intimidation",
-						skill: "Cha",
-						value: "+1",
-						selected: false
-					},
-					{
-						name: "Investigation",
-						skill: "Int",
-						value: "0",
-						selected: false
-					},
-					{
-						name: "Medicine",
-						skill: "Wis",
-						value: "+3",
-						selected: false
-					},
-					{
-						name: "Nature",
-						skill: "Int",
-						value: "0",
-						selected: false
-					},
-					{
-						name: "Perception",
-						skill: "Wis",
-						value: "+5",
-						selected: true
-					},
-					{
-						name: "Performance",
-						skill: "Cha",
-						value: "+1",
-						selected: false
-					},
-					{
-						name: "Persuasion",
-						skill: "Cha",
-						value: "+3",
-						selected: true
-					},
-					{
-						name: "Religion",
-						skill: "Int",
-						value: "0",
-						selected: false
-					},
-					{
-						name: "Sleight of Hand",
-						skill: "Dex",
-						value: "+5",
-						selected: true
-					},
-					{
-						name: "Stealth",
-						skill: "Dex",
-						value: "+10",
-						selected: true
-					},
-					{
-						name: "Survival",
-						skill: "Wis",
-						value: "+3",
-						selected: false
-					}
-				],
-				savingThrows: [
-					{
-						name: "Strength",
-						value: "-2",
-						selected: false
-					},
-					{
-						name: "Dexterity",
-						value: "6",
-						selected: true
-					},
-					{
-						name: "Constitution",
-						value: "+1",
-						selected: false
-					},
-					{
-						name: "Intelligence",
-						value: "+2",
-						selected: true
-					},
-					{
-						name: "Wisdom",
-						value: "+2",
-						selected: false
-					},
-					{
-						name: "Charisma",
-						value: "+1",
-						selected: false
-					},
-				]
-			},
-			{
-				name: "Meow die Superkatze",
-				avatar: "public/img/shapes/avatar.jpg",
-				generalInformation: {
-					race: "Cat",
-					class: "Very beautiful",
-					level: 59
+				"money": {
+					"copper": 15,
+					"silver": 180,
+					"electrum": 0,
+					"gold": 31,
+					"platinum": 0
 				},
-				combats: {
-					hitpoints: 79,
-					xp: 39,
-					hitdice: 37
-				},
-				skillsAndModifier: [
+				"proficiencies": [
 					{
-						name: "Strength",
-						shortname: "Str",
-						modifier: "-2",
-						skill: 7
+						"id": "7cef5aa4-398f-4fa6-a9db-873742c4836d",
+						"name": "Common",
+						"type": "Languages"
 					},
 					{
-						name: "Dexterity",
-						shortname: "Dex",
-						modifier: "+4",
-						skill: 18
+						"id": "598453ef-f24f-4eee-945f-274cb85f941f",
+						"name": "Gnomish",
+						"type": "Languages"
 					},
 					{
-						name: "Constitution",
-						shortname: "Con",
-						modifier: "+1",
-						skill: 13
+						"id": "371884bd-ab10-4819-b7cd-453fa21625cd",
+						"name": "Thieves' Cant",
+						"type": "Languages"
 					},
 					{
-						name: "Intelligence",
-						shortname: "Int",
-						modifier: "0",
-						skill: 10
+						"id": "efdfb811-14b5-4edd-836b-91f87826f9a9",
+						"name": "simple weapons",
+						"type": "Weapons"
 					},
 					{
-						name: "Wisdom",
-						shortname: "Wis",
-						modifier: "+3",
-						skill: 16
+						"id": "88f85677-fc24-41e3-bef4-51e0d9262ddd",
+						"name": "hand crossbow",
+						"type": "Weapons"
 					},
 					{
-						name: "Charisma",
-						shortname: "Cha",
-						modifier: "+1",
-						skill: 12
-					},
-				],
-				traits: [
-					{
-						name: "Armor Class",
-						value: 15
+						"id": "80ca0a4a-1d9b-4c13-95a9-0482d0c53b3e",
+						"name": "longsword",
+						"type": "Weapons"
 					},
 					{
-						name: "Initiative",
-						value: 0
+						"id": "e727c13e-c7a8-4ff9-aec3-f432eebc5537",
+						"name": "rapier",
+						"type": "Weapons"
 					},
 					{
-						name: "Speed",
-						value: 35
+						"id": "5e8703ae-4034-4e2f-9bfe-2745d83d6301",
+						"name": "light armor",
+						"type": "Armor"
 					}
 				],
-				skills: [
+				"traits": [
 					{
-						name: "Acrobatics",
-						skill: "Dex",
-						value: "+6",
-						selected: Boolean(true)
+						"id": "12b8cb68-66fd-4e6c-9476-c98c2bcdfb96",
+						"name": "Expertise (Rogue)",
+						"description": "At 1st level, choose two of your skill proficiencies, or one of your skill proficiencies and your proficiency with thieves’ tools. Your proficiency bonus is doubled for any ability check you make that uses either of the chosen proficiencies.\n\nAt 6th level, you can choose two more of your proficiencies (in skills or with thieves’ tools) to gain this benefit. "
 					},
 					{
-						name: "Animal Handling",
-						skill: "Wis",
-						value: "+3",
-						selected: false
+						"id": "808b376a-a870-40c9-9bd2-35154817110d",
+						"name": "False Identity",
+						"description": "You have created a second identity that includes documentation, established acquaintances, and disguises that allow you to assume that persona. Additionally, you can forge documents including official papers and personal letters, as long as you have seen an example of the kind of document or the handwriting you are trying to copy. "
 					},
 					{
-						name: "Arcana",
-						skill: "Int",
-						value: "0",
-						selected: false
+						"id": "467d7654-6609-4e6b-95c3-a8d088032c3b",
+						"name": "Gnome Cunning",
+						"description": "You have advantage on all Intelligence, Wisdom and Charisma saving throws against magic. "
 					},
 					{
-						name: "Athletics",
-						skill: "Str",
-						value: "-3",
-						selected: false
+						"id": "b305a4ef-f594-43a6-95bd-2e560efc370e",
+						"name": "Sneak Attack",
+						"description": "Beginning at 1st level, you know how to strike subtly and exploit a foe’s distraction. Once per turn, you can deal an extra 1d6 damage to one creature you hit with an attack if you have advantage on the attack roll.\n\nThe attack must use a finesse or a ranged weapon.\n\nYou don’t need advantage on the attack roll if another enemy of the target is within 5 feet of it, that enemy isn’t incapacitated, and you don’t have disadvantage on the attack roll.\n\nThe amount of the extra damage increases as you gain levels in this class, as shown in the Sneak Attack column of the Rogue table. "
 					},
 					{
-						name: "Deception",
-						skill: "Cha",
-						value: "+6",
-						selected: true
+						"id": "3cd50bd3-728d-4f31-8419-8640a40c492b",
+						"name": "Cunning Action",
+						"description": "Starting at 2nd level, your quick thinking and agility allow you to move and act quickly. You can take a bonus action on each of your turns in combat. This action can be used only to take the Dash, Disengage, or Hide action."
 					},
 					{
-						name: "History",
-						skill: "Int",
-						value: "0",
-						selected: false
+						"id": "716c8038-2065-4d9f-bc2d-eee851f27a40",
+						"name": "Natural Illusionist",
+						"description": " You know the Minor Illusion cantrip. Intelligence is your spellcasting modifier for it."
 					},
 					{
-						name: "Insight",
-						skill: "Wis",
-						value: "+3",
-						selected: false
-					},
-					{
-						name: "Intimidation",
-						skill: "Cha",
-						value: "+1",
-						selected: false
-					},
-					{
-						name: "Investigation",
-						skill: "Int",
-						value: "0",
-						selected: false
-					},
-					{
-						name: "Medicine",
-						skill: "Wis",
-						value: "+3",
-						selected: false
-					},
-					{
-						name: "Nature",
-						skill: "Int",
-						value: "0",
-						selected: false
-					},
-					{
-						name: "Perception",
-						skill: "Wis",
-						value: "+5",
-						selected: true
-					},
-					{
-						name: "Performance",
-						skill: "Cha",
-						value: "+1",
-						selected: false
-					},
-					{
-						name: "Persuasion",
-						skill: "Cha",
-						value: "+3",
-						selected: true
-					},
-					{
-						name: "Religion",
-						skill: "Int",
-						value: "0",
-						selected: false
-					},
-					{
-						name: "Sleight of Hand",
-						skill: "Dex",
-						value: "+5",
-						selected: true
-					},
-					{
-						name: "Stealth",
-						skill: "Dex",
-						value: "+10",
-						selected: true
-					},
-					{
-						name: "Survival",
-						skill: "Wis",
-						value: "+3",
-						selected: false
+						"id": "3e4ee59d-3dd7-4bf4-8bd2-246bbed3394a",
+						"name": "Speak with Small Beasts",
+						"description": " Through sound and gestures, you may communicate simple ideas with Small or smaller beasts."
 					}
 				],
-				savingThrows: [
+				"items": [
 					{
-						name: "Strength",
-						value: "-2",
-						selected: false
+						"name": "Disguise Kit",
+						"id": "b8095b2b-f272-462c-8773-5b0e0a5b75ab",
+						"amount": "1",
+						"equipped": false
 					},
 					{
-						name: "Dexterity",
-						value: "6",
-						selected: true
+						"name": "Dagger",
+						"id": "02f991e5-52d7-4311-aad6-edc65013b702",
+						"amount": "1",
+						"equipped": false
 					},
 					{
-						name: "Constitution",
-						value: "+1",
-						selected: false
-					},
-					{
-						name: "Intelligence",
-						value: "+2",
-						selected: true
-					},
-					{
-						name: "Wisdom",
-						value: "+2",
-						selected: false
-					},
-					{
-						name: "Charisma",
-						value: "+1",
-						selected: false
-					},
+						"name": "Leather Armor",
+						"id": "ca05dead-b3a1-4e46-b215-b5e07dddc470",
+						"amount": "1",
+						"equipped": true
+					}
 				]
 			}
+
 		]
 	},
 	mutations: {
