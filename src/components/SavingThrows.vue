@@ -2,7 +2,7 @@
 	<v-layout align-center justify-center>
         <v-dialog transition="dialog-bottom-transition" max-width="600">
         <template v-slot:activator="{ on, attrs }">
-            <v-btn color="primary" block v-bind="attrs" v-on="on">Death Saving Throws</v-btn>
+            <v-btn color="primary" block v-bind="attrs" v-on="on">Saving Throws</v-btn>
         </template>
         <template v-slot:default="dialog">
             <v-card>
