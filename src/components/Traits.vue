@@ -2,11 +2,11 @@
 	<v-layout align-center justify-center>
 		<v-dialog transition="dialog-bottom-transition" max-width="600">
 			<template v-slot:activator="{ on, attrs }">
-				<v-btn color="primary" block v-bind="attrs" v-on="on">Traits</v-btn>
+				<v-btn color="primary" block v-bind="attrs" v-on="on">{{ name || "Traits"}}</v-btn>
 			</template>
 			<template v-slot:default="dialog">
 				<v-card>
-					<v-toolbar color="primary" dark><span class="text-h5">Traits</span></v-toolbar>
+					<v-toolbar color="primary" dark><span class="text-h5">{{ name || "Traits"}}</span></v-toolbar>
 					<v-card-text class="pa-sm-12 pa-6">
 						<v-row>
 							<v-col v-for="trait in traits" :key="trait.id" class="col-12 col-sm-6">
@@ -33,7 +33,8 @@
 <script>
 export default {
 	props: {
-		traits: Array
+		traits: Array,
+		name: String
 	},
 	computed: {
 		dark() {
