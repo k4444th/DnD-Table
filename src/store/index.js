@@ -25,7 +25,7 @@ export default new Vuex.Store({
 			{name: "TV", icon: "mdi-television", url: "/tv"},
 		],
 
-		currentMap: 0,
+		currentMap: "./../..public/img/maps/map1.jpeg",
 
 		maps: [
 			"./../..public/img/maps/map1.jpeg",
@@ -722,6 +722,9 @@ export default new Vuex.Store({
 	mutations: {
 		setRegistered(state, registered) {
 			state.registered = registered;
+		},
+		setCurrentMap(state, map) {
+			state.currentMap = map;
 		}
 	},
 	actions: {},

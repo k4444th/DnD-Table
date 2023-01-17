@@ -11,14 +11,8 @@ export default {
   name: "Tv",
   computed: {
       currentMap() {
-        let maps = this.$store.state.maps;
-        let mapIndex = this.$store.state.currentMap;
-        return maps[mapIndex];
+        return this.$store.state.currentMap
       }
-  },
-  created() {
-    let image = document.querySelector(".image");
-    console.log(image);
   }
 };
 </script>
