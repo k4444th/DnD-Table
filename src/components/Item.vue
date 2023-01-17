@@ -102,6 +102,7 @@ export default {
 	mounted() {
 		if (this.item) {
 			this.itemData = this.item;
+			this.loading = false;
 		} else {
 			this.fetchDetails();
 		}
