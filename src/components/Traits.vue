@@ -2,25 +2,21 @@
 	<v-layout align-center justify-center>
 		<v-dialog transition="dialog-bottom-transition" max-width="600">
 			<template v-slot:activator="{ on, attrs }">
-				<v-btn color="primary" block v-bind="attrs" v-on="on">Traits</v-btn>
+				<v-btn color="primary" block v-bind="attrs" v-on="on">{{ name || "Traits"}}</v-btn>
 			</template>
 			<template v-slot:default="dialog">
 				<v-card>
-					<v-toolbar color="primary" dark><span class="text-h5">Traits</span></v-toolbar>
-					<v-card-text class="pa-sm-12 pa-6">
-						<v-row>
-							<v-col v-for="trait in traits" :key="trait.id" class="col-12 col-sm-6">
-								<v-card>
-									<v-card-title>
-										{{ trait.name }}
-									</v-card-title>
-									<v-card-text>
-										{{ trait.description }}
-									</v-card-text>
-								</v-card>
-							</v-col>
-						</v-row>
-					</v-card-text>
+					<v-toolbar color="primary" dark><span class="text-h5">{{ name || "Traits"}}</span></v-toolbar>
+						<v-expansion-panels v-model="panel" :readonly="readonly" multiple>
+							<v-expansion-panel v-for="trait in traits" :key="trait.id" class="col-12">
+								<v-expansion-panel-header>
+									{{ trait.name }}
+								</v-expansion-panel-header>
+								<v-expansion-panel-content>
+									{{ trait.description }}
+								</v-expansion-panel-content>
+							</v-expansion-panel>
+						</v-expansion-panels>
 					<v-card-actions class="justify-end">
 						<v-btn text @click="dialog.value = false">Close</v-btn>
 					</v-card-actions>
@@ -33,7 +29,8 @@
 <script>
 export default {
 	props: {
-		traits: Array
+		traits: Array,
+		name: String
 	},
 	computed: {
 		dark() {

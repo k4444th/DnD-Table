@@ -16,6 +16,7 @@
 							Details
 						</v-expansion-panel-header>
 						<v-expansion-panel-content v-if="expanded">
+							<Traits v-if="itemData.properties != undefined && itemData.properties.length > 0" v-bind:traits="itemData.properties" name="Properties"></Traits>
 							<div v-if="itemData.details">
 								<v-list>
 									<v-list-item-group active-class="">
@@ -76,11 +77,13 @@
 <script>
 import axios from "axios";
 import ItemEditor from "@/components/ItemEditor.vue"
+import Traits from "./Traits.vue";
 
 export default {
 	name: "Item",
 	components: {
-		ItemEditor
+		ItemEditor,
+		Traits
 	},
 	props: {
 		item: {
@@ -102,6 +105,7 @@ export default {
 	mounted() {
 		if (this.item) {
 			this.itemData = this.item;
+			this.loading = false;
 		} else {
 			this.fetchDetails();
 		}
