@@ -97,7 +97,7 @@ export default {
 		CharacterCard,
 		Quotes,
 		Traits,
-		Weapons
+		Weapons,
 	},
 };
 </script>

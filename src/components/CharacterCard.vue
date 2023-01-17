@@ -23,6 +23,8 @@
 						<v-icon>mdi-dice-5-outline</v-icon> Hit Dice: {{ character.combat.hit_dice }}
 					</div>
 				</v-list-item-subtitle>
+				<Money v-bind:money="character.money"/>
+
 			</v-list-item-content>
 			<v-list-item-avatar v-if="character.avatar" tile size="120" color="grey" class="d-none d-sm-flex"><v-img
 					:src="character.avatar"></v-img></v-list-item-avatar>
@@ -31,11 +33,14 @@
 </template>
 
 <script>
+import Money from "@/components/Money.vue";
+
 export default {
 	props: {
 		character: Object,
 	},
 	components: {
+		Money
 	},
 	computed: {
 		dark() {

@@ -6,7 +6,9 @@
 		</div>
 		<br>
 		<CharacterCard v-bind:character="character" v-bind:name="false" v-bind:avatar="false" />
+		<br>
 		<Combat v-bind:combat="character.combat" />
+		<br>
 		<SkillsAndModifiers v-bind:skills="character.skills" v-bind:size="'small'" />
 		<v-row class="mt-7 mr-2 ml-2">
 			<v-col cols="6" class="pa-2"><Traits v-bind:skills="character.traits"/></v-col>

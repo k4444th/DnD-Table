@@ -44,8 +44,8 @@
 <style scoped>
 .dice {
     z-index: 10;
-    position: absolute;
-    left: 0; 
+    position: relative;
+    left: -40px; 
     right: 0; 
     top: 0;
     bottom: 0;

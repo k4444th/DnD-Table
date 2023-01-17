@@ -1,8 +1,27 @@
 <template>
     <div class="image">
-        <img src="./../../public/img/maps/map2.jpeg" class="align-center">
+      {{ currentMap }}
+        <img src="currentMap">
     </div>
 </template>
+
+<script>
+
+export default {
+  name: "Tv",
+  computed: {
+      currentMap() {
+        let maps = this.$store.state.maps;
+        let mapIndex = this.$store.state.currentMap;
+        return maps[mapIndex];
+      }
+  },
+  created() {
+    let image = document.querySelector(".image");
+    console.log(image);
+  }
+};
+</script>
 
 <style scoped>
 img {
