@@ -1,8 +1,21 @@
 <template>
     <div class="image">
-        <img src="./../../public/img/maps/map2.jpeg" class="align-center">
+      {{ currentMap }}
+        <img src="currentMap">
     </div>
 </template>
+
+<script>
+
+export default {
+  name: "Tv",
+  computed: {
+      currentMap() {
+        return this.$store.state.currentMap
+      }
+  }
+};
+</script>
 
 <style scoped>
 img {

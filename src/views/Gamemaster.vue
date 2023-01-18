@@ -5,6 +5,7 @@
       <v-container v-if="registered">
         <Dice class="d-flex justify-center"/>
         <br>
+        <SelectMap/>
         <v-row>
             <v-col v-for="character in characters" :key="character[0]" class="col-12 col-sm-6">
               <GamemasterPreview v-bind:character="character"/>
@@ -24,6 +25,7 @@
   import Login from "@/components/Login.vue";
   import GamemasterPreview from "@/components/GamemasterPreview.vue";
   import Dice from "@/components/Dice.vue";
+  import SelectMap from "@/components/SelectMap.vue";
   
   export default {
     name: "Gamemaster",
@@ -32,6 +34,7 @@
         Login,
         Dice,
         GamemasterPreview,
+        SelectMap
     },
     computed: {
         registered() {
@@ -43,9 +46,3 @@
     }
   };
   </script>
-
-  <style scoped>
-        .traits {
-            position: relative;
-        }
-  </style>
