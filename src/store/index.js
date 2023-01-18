@@ -25,11 +25,11 @@ export default new Vuex.Store({
 			{name: "TV", icon: "mdi-television", url: "/tv"},
 		],
 
-		currentMap: "./../..public/img/maps/map1.jpeg",
+		currentMap: 1,
 
 		maps: [
-			"./../..public/img/maps/map1.jpeg",
-			"./../..public/img/maps/map2.jpeg"
+			"./../../public/img/maps/map1.jpeg",
+			"./../../public/img/maps/map2.jpeg"
 		],
 
 		wotd: 0,
