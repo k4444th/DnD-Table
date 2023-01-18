@@ -18,7 +18,7 @@ export default {
   computed: {
       currentMap() {
         return this.$store.state.currentMap;
-      }
+      },
   },
   created() {
     let image = document.querySelector(".image");

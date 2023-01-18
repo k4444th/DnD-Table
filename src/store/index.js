@@ -533,6 +533,7 @@ export default new Vuex.Store({
 				"race": "Forest Gnome",
 				"alignment": "Chaotic Neutral",
 				"xp": 350,
+				"avatar": 0,
 				"combat": {
 					"armor_class": 15,
 					"initiative": 4,
