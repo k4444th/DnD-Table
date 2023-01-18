@@ -363,38 +363,32 @@ export default new Vuex.Store({
 					"death_save_success": 0,
 					"death_save_fail": 0
 				},
-				"skills": [
-					{
-						"name": "Strength",
+				"skills": {
+					"Strength": {
 						"value": 6,
 						"modifier": -1
 					},
-					{
-						"name": "Dexterity",
+					"Dexterity": {
 						"value": 18,
 						"modifier": 1
 					},
-					{
-						"name": "Condition",
+					"Condition": {
 						"value": 18,
-						"modifier": 2
+						"modifier": 1
 					},
-					{
-						"name": "Intelligence",
+					"Intelligence": {
 						"value": 19,
-						"modifier": 3
+						"modifier": 1
 					},
-					{
-						"name": "Wisdom",
+					"Wisdom": {
 						"value": 14,
-						"modifier": 4
+						"modifier": 1
 					},
-					{
-						"name": "Charisma",
+					"Charisma": {
 						"value": 10,
-						"modifier": 5
+						"modifier": 1
 					}
-				],
+				},
 				"skill_proficiencies": {
 					"strenght": false,
 					"dexterity": true,
@@ -544,38 +538,32 @@ export default new Vuex.Store({
 					"death_save_success": 0,
 					"death_save_fail": 0
 				},
-				"skills": [
-					{
-						"name": "Strength",
+				"skills": {
+					"Strength": {
 						"value": 6,
 						"modifier": -1
 					},
-					{
-						"name": "Dexterity",
+					"Dexterity": {
 						"value": 18,
 						"modifier": 1
 					},
-					{
-						"name": "Condition",
+					"Condition": {
 						"value": 18,
-						"modifier": 2
+						"modifier": 1
 					},
-					{
-						"name": "Intelligence",
+					"Intelligence": {
 						"value": 19,
-						"modifier": 3
+						"modifier": 1
 					},
-					{
-						"name": "Wisdom",
+					"Wisdom": {
 						"value": 14,
-						"modifier": 4
+						"modifier": 1
 					},
-					{
-						"name": "Charisma",
+					"Charisma": {
 						"value": 10,
-						"modifier": 5
+						"modifier": 1
 					}
-				],
+				},
 				"skill_proficiencies": {
 					"strenght": false,
 					"dexterity": true,
