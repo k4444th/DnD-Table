@@ -11,6 +11,27 @@
 
 				<v-divider />
 
+				<v-card>
+					<v-card-title>Properties</v-card-title>
+					<v-list>
+						<v-list-item v-for="property in item.properties" :key="property.id">
+							<v-list-item-content>
+								<v-list-item-title v-text="property.name"></v-list-item-title>
+								<v-list-item-subtitle v-text="property.description"></v-list-item-subtitle>
+								<v-text-field v-model="property.details" outlined dense></v-text-field>
+							</v-list-item-content>
+							<v-list-item-action>
+								<v-btn icon @click="removeProperty(property.property_id)">
+									<v-icon color="grey lighten-1">mdi-delete-forever</v-icon>
+								</v-btn>
+							</v-list-item-action>
+						</v-list-item>
+					</v-list>
+					<v-card-actions>
+						<PropertyPicker v-bind:selected="item.properties" selection-type="itemProperties"
+							@addProps="addProperties" />
+					</v-card-actions>
+				</v-card>
 
 				<div v-if="item.type == 'Weapon'">
 					<v-checkbox v-model="item.details.ranged" :label="`Ranged`"></v-checkbox>
@@ -61,9 +82,13 @@
 
 <script>
 import axios from "axios";
+import PropertyPicker from "./PropertyPicker.vue";
 
 export default {
 	name: "ItemEditor",
+	components: {
+		PropertyPicker
+	},
 	props: {
 		itemId: {
 			type: String,
@@ -83,13 +108,32 @@ export default {
 	mounted() {
 		if (this.itemId) {
 			this.fetchData();
-		}else{
-			this.item = {details:{}}
+		} else {
+			this.item = { details: {} }
 		}
 		this.loading = false;
 
 	},
 	methods: {
+		removeProperty(id) {
+			console.log(id)
+			console.log(this.item.properties)
+			this.item.properties = this.item.properties.filter(x => x.property_id != id);
+		},
+
+		async addProperties(properties) {
+			console.log(properties)
+
+			for (const prop of properties) {
+				const response = await axios.get(`${process.env.VUE_APP_DND_API_ENDPOINT}/items/properties/id/${prop}`);
+
+				const data = response.data
+
+				this.item.properties.push({property_id: data.id, name: data.name, description: data.description});
+			}
+
+		},
+
 		async fetchData() {
 			const response = await axios.get(`${process.env.VUE_APP_DND_API_ENDPOINT}/items/id/${this.itemId}`);
 			console.log(response.data)
