@@ -13,7 +13,7 @@
 		<v-row class="mt-7 mr-2 ml-2">
 			<v-col cols="6" class="pa-2"><Traits v-bind:skills="character.traits"/></v-col>
 			<v-col cols="6" class="pa-2"><Weapons :items="character.items"/></v-col>
-			<v-col cols="6" class="pa-2"><Proficiencies v-bind:proficiencies="character.skill_proficiencies" /></v-col>
+			<v-col cols="6" class="pa-2"><Proficiencies v-bind:proficiencies="character.proficiencies" v-bind:skill_proficiencies="character.skill_proficiencies" /></v-col>
 			<v-col cols="6" class="pa-2"><SavingThrows v-bind:combat="character.combat" /></v-col>
 		</v-row>
 		<v-row>
