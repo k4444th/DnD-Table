@@ -1,7 +1,6 @@
 <template>
     <div>
-        <v-select :items="maps" label="Select Map" v-model="selected" @change="changeMap"></v-select>
-        {{ selected }}
+        <v-select :items="maps" label="Select Map" v-model="selected" @change="changeMap" return-object></v-select>
     </div>
 </template>
 
@@ -14,6 +13,11 @@ export default {
     },
     methods: {
         changeMap() {
+            for (let i = 0; i < this.maps.length; i++) {
+                if (this.selected == this.maps[i]) {
+                    this.selected = i;
+                }
+            }
             this.$store.commit("setCurrentMap", this.selected);
         }
     },

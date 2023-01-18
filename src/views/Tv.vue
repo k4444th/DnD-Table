@@ -1,23 +1,37 @@
 <template>
     <div class="image">
-      {{ currentMap }}
-        <img src="currentMap">
+        <img :src="maps[currentMap]">
     </div>
 </template>
 
 <script>
+import map1 from "./../../public/img/maps/map1.jpeg";
+import map2 from "./../../public/img/maps/map2.jpeg";
 
 export default {
   name: "Tv",
+  data() {
+    return {
+      maps: [map1, map2]
+    }
+  },
   computed: {
       currentMap() {
-        return this.$store.state.currentMap
+        return this.$store.state.currentMap;
       }
+  },
+  created() {
+    let image = document.querySelector(".image");
+    console.log(image);
   }
 };
 </script>
 
 <style scoped>
+.image {
+  text-align: center;
+}
+
 img {
   max-width: 100%;
   max-height: 90vh;
