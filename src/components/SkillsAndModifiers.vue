@@ -19,7 +19,7 @@
 <script>
 export default {
 	props: {
-		skills: Array
+		skills: Object
 	},
 	computed: {
 		dark() {
