@@ -1,15 +1,15 @@
 <template>
 	<v-container>
 		<v-row>
-			<v-col v-for="skill in skills" :key="skill.name" class="col-4 col-lg-2">
+			<v-col v-for="(value, key) in skills" :key="key" class="col-4 col-lg-2">
 				<div class="stat-container">
 					<div class="image-container">
 						<img src="./../../public/img/shapes/traits1.svg" alt="" class="stat-shape"
 							:class="dark ? 'dark-theme' : ''" />
-						<span class="skill">{{ skill.value }}</span>
-						<span class="modifier">{{ skill.modifier }}</span>
+						<span class="skill">{{ value.value }}</span>
+						<span class="modifier">{{ value.modifier }}</span>
 					</div>
-					<span>{{ skill.name }}</span>
+					<span>{{ key }}</span>
 				</div>
 			</v-col>
 		</v-row>
