@@ -7,16 +7,16 @@
 			<template v-slot:default="dialog">
 				<v-card>
 					<v-toolbar color="primary" dark><span class="text-h5">{{ name || "Traits"}}</span></v-toolbar>
-						<v-expansion-panels v-model="panel" :readonly="readonly" multiple>
-							<v-expansion-panel v-for="trait in traits" :key="trait.id" class="col-12">
-								<v-expansion-panel-header>
-									{{ trait.name }}
-								</v-expansion-panel-header>
-								<v-expansion-panel-content>
-									{{ trait.description }}
-								</v-expansion-panel-content>
-							</v-expansion-panel>
-						</v-expansion-panels>
+					<v-expansion-panels multiple>
+						<v-expansion-panel v-for="trait in traits" :key="trait.id" class="col-12">
+							<v-expansion-panel-header>
+								<span>{{ trait.name }} {{ trait.details ? ` (${trait.details})` : ""}}</span>
+							</v-expansion-panel-header>
+							<v-expansion-panel-content>
+								{{ trait.description }}
+							</v-expansion-panel-content>
+						</v-expansion-panel>
+					</v-expansion-panels>
 					<v-card-actions class="justify-end">
 						<v-btn text @click="dialog.value = false">Close</v-btn>
 					</v-card-actions>
