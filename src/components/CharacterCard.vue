@@ -25,9 +25,6 @@
 				</v-list-item-subtitle>
 				<Money v-bind:money="character.money"/>
 			</v-list-item-content>
-			<v-list-item-avatar v-if="character.avatar" tile size="120" color="grey" class="d-none d-sm-flex">
-				<v-img :src="avatar1"/>
-			</v-list-item-avatar>
 		</v-list-item>
 	</v-card>
 </template>
