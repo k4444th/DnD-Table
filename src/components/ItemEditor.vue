@@ -129,7 +129,7 @@ export default {
 
 				const data = response.data
 
-				this.item.properties.push({property_id: data.id, name: data.name, description: data.description});
+				this.item.properties.push({ property_id: data.id, name: data.name, description: data.description });
 			}
 
 		},
@@ -154,9 +154,9 @@ export default {
 
 			}
 
-			console.log(response)
-
-			this.$emit('closeDialog')
+			console.log(response);
+			this.$emit('itemCreated', response.data);
+			this.$emit('closeDialog');
 		}
 	}
 

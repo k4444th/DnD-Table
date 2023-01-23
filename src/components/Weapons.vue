@@ -8,8 +8,8 @@
 				<v-card>
 					<v-toolbar color="primary" dark><span class="text-h5">Items</span></v-toolbar>
 					<v-card-text>
-						<v-container v-for="item in items" :key="item.id">
-						<Item :editable="false" :id="item.id" :local="true"></Item>
+						<v-container v-for="item in items" :key="item.item_id">
+						<Item :editable="false" :id="item.item_id" :local="true"></Item>
 						</v-container>
 					</v-card-text>
 					<v-card-actions class="justify-end">
