@@ -99,7 +99,7 @@ export default {
 	data() {
 		return {
 			loading: true,
-			item: {},
+			item: { details: {}, properties: [] },
 			itemTypes: ['Weapon', 'Armor', 'Adventuring Gear', 'Equipment Pack', 'Tool'],
 			damageTypes: ['slashing', 'bludgeoning', 'piercing', 'force', 'fire', 'cold', 'lightning', 'thunder', 'poison', 'acid', 'psychic', 'necrotic', 'radiant'],
 			armorTypes: ['Light', 'Medium', 'Heavy', 'Shield']
@@ -108,8 +108,6 @@ export default {
 	mounted() {
 		if (this.itemId) {
 			this.fetchData();
-		} else {
-			this.item = { details: {} }
 		}
 		this.loading = false;
 
