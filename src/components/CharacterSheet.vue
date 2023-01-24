@@ -88,9 +88,6 @@ import Traits from "@/components/Traits.vue";
 import Weapons from "@/components/Weapons.vue";
 import CharacterEditor from "./CharacterEditor/CharacterEditor.vue";
 
-import axios from 'axios';
-
-
 export default {
 	name: "Home",
 	data() {
@@ -119,7 +116,7 @@ export default {
 			if (this.characterOverride) {
 				this.character = this.characterOverride;
 			} else {
-				const response = await axios.get(`${process.env.VUE_APP_DND_API_ENDPOINT}/characters/id/${this.characterId}`);
+				const response = await this.$axios.get(`/characters/id/${this.characterId}`);
 				console.log(response);
 
 				this.character = response.data;

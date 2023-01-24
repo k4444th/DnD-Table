@@ -75,7 +75,6 @@
 </template>
 
 <script>
-import axios from "axios";
 import ItemEditor from "@/components/ItemEditor.vue"
 import Traits from "./Traits.vue";
 
@@ -143,7 +142,7 @@ export default {
 			} else {
 				let id = this.item ? this.item.id : this.id;
 
-				const response = await axios.get(`${process.env.VUE_APP_DND_API_ENDPOINT}/items/id/${id}`);
+				const response = await this.$axios.get(`/items/id/${id}`);
 				this.itemData = response.data;
 			}
 

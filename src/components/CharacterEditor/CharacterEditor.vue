@@ -305,7 +305,6 @@
 	</v-container>
 </template>
 <script>
-import axios from 'axios';
 import PropertyPicker from '../PropertyPicker.vue';
 
 export default {
@@ -354,7 +353,7 @@ export default {
 	},
 	methods: {
 		async fetchCharacter() {
-			const response = await axios.get(`${process.env.VUE_APP_DND_API_ENDPOINT}/characters/id/${this.characterId}`);
+			const response = await this.$axios.get(`/characters/id/${this.characterId}`);
 
 			this.character = response.data;
 			this.loading = false;
@@ -367,7 +366,7 @@ export default {
 			if (this.character.id) {
 				console.log("Updating character");
 
-				response = await axios.put(`${process.env.VUE_APP_DND_API_ENDPOINT}/characters/id/${this.character.id}`, this.character);
+				response = await this.$axios.put(`/characters/id/${this.character.id}`, this.character);
 
 				console.log(response);
 
@@ -376,7 +375,7 @@ export default {
 			} else {
 				console.log("Creating new characters");
 
-				response = await axios.post(`${process.env.VUE_APP_DND_API_ENDPOINT}/characters/`, this.character);
+				response = await this.$axios.post(`/characters/`, this.character);
 
 				console.log(response);
 			}
@@ -388,7 +387,7 @@ export default {
 			console.log(proficiencies)
 
 			for (const prop of proficiencies) {
-				const response = await axios.get(`${process.env.VUE_APP_DND_API_ENDPOINT}/characters/proficiencies/id/${prop}`);
+				const response = await this.$axios.get(`/characters/proficiencies/id/${prop}`);
 
 				const data = response.data;
 
@@ -403,7 +402,7 @@ export default {
 			console.log(items);
 
 			for (const item of items) {
-				const response = await axios.get(`${process.env.VUE_APP_DND_API_ENDPOINT}/items/id/${item}`);
+				const response = await this.$axios.get(`/items/id/${item}`);
 				const data = response.data;
 				this.character.items.push({ item_id: data.id, name: data.name, amount: 1, equipped: false });
 			}

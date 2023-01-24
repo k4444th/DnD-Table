@@ -81,7 +81,6 @@
 </template>
 
 <script>
-import axios from "axios";
 import PropertyPicker from "./PropertyPicker.vue";
 
 export default {
@@ -123,7 +122,7 @@ export default {
 			console.log(properties)
 
 			for (const prop of properties) {
-				const response = await axios.get(`${process.env.VUE_APP_DND_API_ENDPOINT}/items/properties/id/${prop}`);
+				const response = await this.$axios.get(`/items/properties/id/${prop}`);
 
 				const data = response.data
 
@@ -133,7 +132,7 @@ export default {
 		},
 
 		async fetchData() {
-			const response = await axios.get(`${process.env.VUE_APP_DND_API_ENDPOINT}/items/id/${this.itemId}`);
+			const response = await this.$axios.get(`/items/id/${this.itemId}`);
 			console.log(response.data)
 			this.item = response.data;
 		},
@@ -144,11 +143,11 @@ export default {
 
 			if (this.itemId) {
 				console.log('Updating item');
-				response = await axios.put(`${process.env.VUE_APP_DND_API_ENDPOINT}/items/id/${this.itemId}`, this.item);
+				response = await this.$axios.put(`/items/id/${this.itemId}`, this.item);
 
 			} else {
 				console.log('Creating item')
-				response = await axios.post(`${process.env.VUE_APP_DND_API_ENDPOINT}/items/`, this.item);
+				response = await this.$axios.post(`/items/`, this.item);
 
 			}
 

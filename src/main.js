@@ -4,6 +4,9 @@ import "./registerServiceWorker";
 import router from "./router";
 import store from "./store";
 import vuetify from "./plugins/vuetify";
+import axios from "./plugins/axios"
+
+Vue.use(axios);
 
 new Vue({
   router,
