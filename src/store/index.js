@@ -20,9 +20,9 @@ export default new Vuex.Store({
 		],
 
 		previews: [
-			{name: "create", icon: "mdi-pencil-outline", url: "/gamemaster"},
-			{name: "join", icon: "mdi-account-plus-outline", url: "/player"},
-			{name: "TV", icon: "mdi-television", url: "/tv"},
+			{ name: "create", icon: "mdi-pencil-outline", url: "/gamemaster" },
+			{ name: "join", icon: "mdi-account-plus-outline", url: "/player" },
+			{ name: "TV", icon: "mdi-television", url: "/tv" },
 		],
 
 		currentMap: 1,
@@ -714,6 +714,11 @@ export default new Vuex.Store({
 		setCurrentMap(state, map) {
 			state.currentMap = map;
 		}
+	},
+	getters: {
+		isLoggedIn(state) {
+			return state.registered;
+		},
 	},
 	actions: {},
 	modules: {},
