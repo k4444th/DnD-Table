@@ -345,6 +345,18 @@ export default {
 		if (this.characterId) {
 			this.fetchCharacter();
 		} else {
+			this.character = {
+				combat: {},
+				skills: {
+					Strength: {}, Dexterity: {}, Condition: {}, Intelligence: {}, Wisdom: {}, Charisma: {},
+				},
+				skill_proficiencies: {},
+				details: {},
+				money: {},
+				proficiencies: [],
+				traits: [],
+				items: []
+			}
 			this.loading = false;
 		}
 	},
