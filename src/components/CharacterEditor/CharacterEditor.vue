@@ -307,6 +307,8 @@
 <script>
 import PropertyPicker from '../PropertyPicker.vue';
 
+import jwtDecode from 'jwt-decode'
+
 export default {
 	name: 'CharacterEditor',
 	data() {
@@ -386,6 +388,11 @@ export default {
 
 			} else {
 				console.log("Creating new characters");
+
+				let jwt = localStorage.getItem("jwt");
+				let id = jwtDecode(jwt).id;
+
+				this.character.owner_id = id;
 
 				response = await this.$axios.post(`/characters/`, this.character);
 
