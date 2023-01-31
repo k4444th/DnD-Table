@@ -26,7 +26,7 @@
 
 		</v-app-bar>
 
-		<v-navigation-drawer v-model="drawer" temporary app width="165">
+		<v-navigation-drawer v-model="drawer" temporary app >
 			<v-list nav dense>
 				<img src="../../public/img/logo.png" width="150px">
 				<br><br>
@@ -39,6 +39,15 @@
 								<v-icon>mdi-home</v-icon>
 							</v-list-item-icon>
 							<v-list-item-content>Home</v-list-item-content>
+						</v-list-item>
+					</router-link>
+
+					<router-link to="/campaigns/my">
+						<v-list-item>
+							<v-list-item-icon>
+								<v-icon>mdi-pencil-outline</v-icon>
+							</v-list-item-icon>
+							<v-list-item-content>Campaigns</v-list-item-content>
 						</v-list-item>
 					</router-link>
 
