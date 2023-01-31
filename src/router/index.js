@@ -67,6 +67,14 @@ const routes = [
 		path: "/admin/characters",
 		name: "Characters",
 		component: () => import("../views/Characters.vue"),
+	},
+	{
+		path: "/campaign/:id",
+		name: "Campaign",
+		component: () => import("../views/Campaign.vue"),
+		meta: {
+			requiresAuth: true
+		}
 	}
 ];
 
