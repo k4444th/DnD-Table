@@ -307,6 +307,8 @@
 <script>
 import PropertyPicker from '../PropertyPicker.vue';
 
+import jwtDecode from 'jwt-decode'
+
 export default {
 	name: 'CharacterEditor',
 	data() {
@@ -345,6 +347,18 @@ export default {
 		if (this.characterId) {
 			this.fetchCharacter();
 		} else {
+			this.character = {
+				combat: {},
+				skills: {
+					Strength: {}, Dexterity: {}, Condition: {}, Intelligence: {}, Wisdom: {}, Charisma: {},
+				},
+				skill_proficiencies: {},
+				details: {},
+				money: {},
+				proficiencies: [],
+				traits: [],
+				items: []
+			}
 			this.loading = false;
 		}
 	},
@@ -374,6 +388,11 @@ export default {
 
 			} else {
 				console.log("Creating new characters");
+
+				let jwt = localStorage.getItem("jwt");
+				let id = jwtDecode(jwt).id;
+
+				this.character.owner_id = id;
 
 				response = await this.$axios.post(`/characters/`, this.character);
 

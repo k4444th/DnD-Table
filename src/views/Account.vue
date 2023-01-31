@@ -1,16 +1,7 @@
 <template>
 	<v-container>
 		<div v-if="account">
-			<h1>{{ account.nickname }}</h1>
-			<h1>Test</h1>
-		</div>
-
-
-		{{ campaigns }}
-
-		<div v-for="campaign in campaigns" :key="campaign.id">
-			<h1>{{ campaign.name }}</h1>
-			<p>{{ campaign.role }}</p>
+			<h1>{{ account.name }}</h1>
 		</div>
 	</v-container>
 </template>
