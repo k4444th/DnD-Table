@@ -3,13 +3,6 @@
 		<div v-if="account">
 			<h1>{{ account.name }}</h1>
 		</div>
-		<div v-for="campaign in campaigns" :key="campaign.id">
-			<h1>{{ campaign.name }}</h1>
-			<p>{{ campaign.role }}</p>
-			<router-link :to="'/campaign/' + campaign.id">
-				<v-btn>Join</v-btn>
-			</router-link>
-		</div>
 	</v-container>
 </template>
 

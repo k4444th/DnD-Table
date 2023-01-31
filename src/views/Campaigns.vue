@@ -5,19 +5,20 @@
 		</v-card-title>
 		<v-card-text>
 			<v-list subheader two-line>
-				<v-list-item v-for="campaign in campaigns" :key="campaign.id" link>
-					<v-list-item-content>
-						<v-list-item-title v-text="campaign.name"></v-list-item-title>
+				<router-link v-for="campaign in campaigns" :key="campaign.id" :to="'/campaigns/id/' + campaign.id">
+					<v-list-item link>
+						<v-list-item-avatar color="primary">
+							{{ campaign.role == "dungeon_master" ? "DM" : "PC" }}
+						</v-list-item-avatar>
+						<v-list-item-content>
+							<v-list-item-title v-text="campaign.name"></v-list-item-title>
 
-						<v-list-item-subtitle v-text="campaign.role"></v-list-item-subtitle>
-					</v-list-item-content>
-
-					<v-list-item-action>
-						<v-btn icon>
-							<v-icon color="grey lighten-1">mdi-information</v-icon>
-						</v-btn>
-					</v-list-item-action>
-				</v-list-item>
+							<v-list-item-subtitle>
+								{{ new Date(campaign.created_at).toLocaleDateString() }}
+							</v-list-item-subtitle>
+						</v-list-item-content>
+					</v-list-item>
+				</router-link>
 			</v-list>
 		</v-card-text>
 		<v-card-actions>
@@ -39,3 +40,8 @@ export default {
 	}
 }
 </script>
+<style scoped>
+a {
+	text-decoration: none;
+}
+</style>
