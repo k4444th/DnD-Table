@@ -36,7 +36,7 @@ export default {
 	async mounted() {
 		const response = await this.$axios.get('/campaigns/my');
 
-		this.campaigns = response.data;
+		this.campaigns = response.data.campaigns;
 	}
 }
 </script>
