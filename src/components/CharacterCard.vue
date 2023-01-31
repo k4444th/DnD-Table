@@ -31,17 +31,10 @@
 
 <script>
 import Money from "@/components/Money.vue";
-import avatar1 from "./../../public/img/avatars/avatar1.png";
-
 
 export default {
 	props: {
 		character: Object,
-	},
-	data() {
-		return {
-			avatar1: avatar1
-		}
 	},
 	components: {
 		Money
