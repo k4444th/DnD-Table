@@ -13,13 +13,12 @@
 			<v-btn icon @click="toggleDarkTheme()">
 				<v-icon>mdi-theme-light-dark</v-icon>
 			</v-btn>
-			<router-link v-if="registered" to="/account">
-				<v-btn icon>
+			<router-link to="/account">
+				<v-btn icon v-if="registered">
 					<v-icon>mdi-account-circle</v-icon>
 				</v-btn>
-			</router-link>
-			<router-link v-if="!registered" to="/account/login">
-				<v-btn icon>
+
+				<v-btn icon v-if="!registered">
 					<v-icon>mdi-login-variant</v-icon>
 				</v-btn>
 			</router-link>
