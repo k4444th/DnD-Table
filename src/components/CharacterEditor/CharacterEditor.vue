@@ -314,7 +314,7 @@
 					</v-form>
 				</v-card-text>
 			</v-card>
-			<v-btn color="green" fixed bottom right fab @click="saveData">
+			<v-btn color="primary" fixed bottom right fab @click="saveData">
 				<v-icon>mdi-content-save</v-icon>
 			</v-btn>
 		</div>
