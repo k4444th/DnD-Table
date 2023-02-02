@@ -1,6 +1,16 @@
 # dnd_table
 
 ## Project setup
+
+#### Config Setup
+
+```
+cp .env .env.local 
+```
+
+Then change `VUE_APP_DND_API_ENDPOINT` to the address of the backend.
+
+### Installs dependencies
 ```
 yarn install
 ```
