@@ -87,11 +87,10 @@ export default {
 				this.dialog = false;
 				if (this.redirect) {
 					this.$router.push(this.redirect);
+				}else{
+					this.$router.push('/');
 				}
 			}
-
-
-
 			return;
 		}
 	}
