@@ -29,8 +29,19 @@
 				<template v-slot:default="joinDialog">
 				<v-card>
 					<v-toolbar color="primary" dark>Join a campaign</v-toolbar>
+					<br>
 					<v-card-text>
-						<div class="text-h2 pa-12">Hello world!</div>
+						<v-text-field label="Join a campaign" placeholder="Campaign ID" v-model="joinId"></v-text-field>
+						<v-row>
+							<v-col cols="10" sm="11">
+								<v-text-field v-model="joinPassword" label="Password" required :type="joinVisible ? 'text' : 'password'"></v-text-field>
+							</v-col>
+							<v-col cols="2" sm="1">
+								<v-icon class="eye-con" v-if="joinVisible" v-on:click="joinToggleVisible">mdi-eye-off-outline</v-icon>
+								<v-icon class="eye-con" v-else v-on:click="joinToggleVisible">mdi-eye-outline</v-icon>
+							</v-col>
+						</v-row>
+						<v-autocomplete v-model="joinCharacter" :items="characters" item-text="name" label="Choose your character"></v-autocomplete>
 					</v-card-text>
 					<v-card-actions class="justify-end">
 						<v-btn color="primary" @click="joinCampaign">Join</v-btn>
@@ -54,8 +65,7 @@
 								<v-text-field v-model="createPassword" label="Password" required :type="createVisible ? 'text' : 'password'"></v-text-field>
 							</v-col>
 							<v-col cols="2" sm="1">
-								<v-icon class="eye-con" v-if="createVisible"
-									v-on:click="toggleVisible">mdi-eye-off-outline</v-icon>
+								<v-icon class="eye-con" v-if="createVisible" v-on:click="createToggleVisible">mdi-eye-off-outline</v-icon>
 								<v-icon class="eye-con" v-else v-on:click="createToggleVisible">mdi-eye-outline</v-icon>
 							</v-col>
 						</v-row>
@@ -80,22 +90,33 @@ export default {
 	data() { 
 		return { 
 			campaigns: [],
-			characters: [],
+			characters: [
+			{
+				name: "Hello",
+			},
+			{
+				name: "Bye"
+			}
+			],
 
 			createDialog: false,
-			joinDialog: false,
 			createCampaignName: "",
 			creatSliderValue: 0,
 			createVisible: false,
-			createPassword: ""
+			createPassword: "",
+			joinDialog: false,
+			joinId: "",
+			joinPassword: "",
+			joinCharacter: "",
+			joinVisible: false
 		}
 	},
 	async mounted() {
 		const campainResponse = await this.$axios.get('/campaigns/my');
 		this.campaigns = campainResponse.data.campaigns;
 
-		const characterResponse = await this.$axios.get('/characters/my?page=1&pageSize=10&search_query=BlablablubderWachelpudding');
-		this.characters = characterResponse.data.campaigns;
+		// const characterResponse = await this.$axios.get('/characters/my?page=1&pageSize=10&search_query=BlablablubderWachelpudding');
+		// this.characters = characterResponse.data.campaigns;
 	},
 	methods: {
 		openCreate() {
@@ -108,8 +129,8 @@ export default {
 				this.createCampaignName = "";
 				this.createPassword = "";
 				this.createSliderValue = 1;
-				console.log(response);
 				let response = await this.$axios.post(`/campaigns/`, campaign[0], campaign[1], campaign[2]);
+				console.log(response);
 	
 			}
 		},
@@ -119,10 +140,20 @@ export default {
 		openJoin() {
 			this.joinDialog = true;
 		},
-		joinCampaign() {
-			console.log("Hi");
-			this.joinDialog = false;
-			console.log(this.characters);
+		async joinCampaign() {
+			if (this.joinId != "" && this.joinPassword != "" && this.joinCharacter != "") {
+				this.joinDialog = false;
+				let joinData = [this.joinId, this.joinCharacter, this.joinPassword];
+				this.joinId = "";
+				this.joinPassword = "";
+				this.joinCharacter = "";
+				console.log(joinData);
+				let response = await this.$axios.post(`/campaigns/` + joinData[0], joinData[1], joinData[2]);
+				console.log(response);
+			}
+		},
+		joinToggleVisible() {
+			this.joinVisible = !this.joinVisible;
 		},
 	}
 }
