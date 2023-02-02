@@ -92,6 +92,8 @@ export default {
 				queryPath = `${process.env.VUE_APP_DND_API_ENDPOINT}/characters/proficiencies/?search_query=${val}`
 			} else if (this.selectionType == 'characterItems') {
 				queryPath = `${process.env.VUE_APP_DND_API_ENDPOINT}/items?search_query=${val}`;
+			} else if (this.selectionType == 'characterTraits') {
+				queryPath = `${process.env.VUE_APP_DND_API_ENDPOINT}/characters/traits/?search_query=${val}`;
 			} else {
 				queryPath = `${process.env.VUE_APP_DND_API_ENDPOINT}/items/properties/?search_query=${val}`;
 			}
@@ -104,6 +106,9 @@ export default {
 			}
 			else if (this.selectionType == 'characterItems') {
 				this.items = response.data.items;
+			}
+			else if (this.selectionType == 'characterTraits') {
+				this.items = response.data.traits;
 			}
 			else {
 				this.items = response.data.properties;
@@ -121,6 +126,8 @@ export default {
 
 			if (this.selectionType == 'characterProficiencies') {
 				queryPath = `${process.env.VUE_APP_DND_API_ENDPOINT}/characters/proficiencies/`
+			} else if (this.selectionType == 'characterTraits') {
+				queryPath = `${process.env.VUE_APP_DND_API_ENDPOINT}/characters/traits/`;
 			} else {
 				queryPath = `${process.env.VUE_APP_DND_API_ENDPOINT}/items/properties/`;
 			}

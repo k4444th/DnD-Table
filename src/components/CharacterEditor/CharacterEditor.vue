@@ -264,6 +264,22 @@
 							</v-expansion-panel>
 
 							<v-expansion-panel>
+								<v-expansion-panel-header>Traits</v-expansion-panel-header>
+								<v-expansion-panel-content>
+									<v-list>
+										<v-list-item v-for="trait in character.traits" :key="trait.id">
+											<v-list-item-content>
+												<v-list-item-title v-text="trait.name"></v-list-item-title>
+												<v-list-item-subtitle v-text="trait.description"></v-list-item-subtitle>
+											</v-list-item-content>
+										</v-list-item>
+									</v-list>
+									<PropertyPicker header="Traits" selection-type="characterTraits"
+										@addProps="addTraits"></PropertyPicker>
+								</v-expansion-panel-content>
+							</v-expansion-panel>
+
+							<v-expansion-panel>
 								<v-expansion-panel-header>
 									Items
 								</v-expansion-panel-header>
@@ -424,6 +440,13 @@ export default {
 				const response = await this.$axios.get(`/items/id/${item}`);
 				const data = response.data;
 				this.character.items.push({ item_id: data.id, name: data.name, amount: 1, equipped: false });
+			}
+		},
+		async addTraits(traits) {
+			for (const trait of traits) {
+				const response = await this.$axios.get(`/characters/traits/id/${trait}`);
+				const data = response.data;
+				this.character.traits.push(data)
 			}
 		}
 
