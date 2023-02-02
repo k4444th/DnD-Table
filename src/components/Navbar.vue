@@ -4,9 +4,6 @@
 			<v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 			<v-spacer></v-spacer>
 			<router-link to="/">
-				<!-- <v-toolbar-title class="white--text">D&D-Table</v-toolbar-title> -->
-				<!--   <v-btn class="red accent-1" height="52" width="40">
-                </v-btn> -->
 				<img src="../../public/img/logo_white.png" height="70">
 			</router-link>
 			<v-spacer></v-spacer>
@@ -45,7 +42,7 @@
 					<router-link to="/campaigns/my">
 						<v-list-item>
 							<v-list-item-icon>
-								<v-icon>mdi-pencil-outline</v-icon>
+								<v-icon>mdi-flag-outline</v-icon>
 							</v-list-item-icon>
 							<v-list-item-content>Campaigns</v-list-item-content>
 						</v-list-item>
