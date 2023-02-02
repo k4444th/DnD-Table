@@ -10,19 +10,67 @@
 			<v-btn icon @click="toggleDarkTheme()">
 				<v-icon>mdi-theme-light-dark</v-icon>
 			</v-btn>
-			<router-link to="/account">
-				<v-btn icon v-if="registered">
-					<v-icon>mdi-account-circle</v-icon>
-				</v-btn>
+			<v-menu :nudge-width="200" offset-x>
+				<template v-slot:activator="{ on, attrs }">
+					<v-btn icon v-bind="attrs" v-on="on">
+						<v-avatar v-if="registered" color="secondary">
+							{{ user.name.substr(0, 4) }}
+						</v-avatar>
+						<v-icon v-if="!registered">mdi-login-variant</v-icon>
+					</v-btn>
+				</template>
 
-				<v-btn icon v-if="!registered">
-					<v-icon>mdi-login-variant</v-icon>
-				</v-btn>
-			</router-link>
+				<v-card>
+					<v-list v-if="registered">
+						<v-list-item>
+							<v-list-item-avatar color="primary">
+								{{ user.name.substr(0, 4) }}
+							</v-list-item-avatar>
+
+							<v-list-item-content>
+								<v-list-item-title>{{ user.name }}</v-list-item-title>
+								<v-list-item-subtitle>{{ user.role }}</v-list-item-subtitle>
+							</v-list-item-content>
+
+							<v-list-item-action>
+								<router-link to="/account">
+									<v-btn icon>
+										<v-icon>mdi-information</v-icon>
+									</v-btn>
+								</router-link>
+							</v-list-item-action>
+						</v-list-item>
+					</v-list>
+
+					<v-divider v-if="registered"></v-divider>
+
+					<v-list>
+						<v-list-item v-if="registered" @click="logout">
+							<v-list-item-icon>
+								<v-icon>mdi-logout-variant</v-icon>
+							</v-list-item-icon>
+							<v-list-item-content>
+								<v-list-item-title>Logout</v-list-item-title>
+							</v-list-item-content>
+						</v-list-item>
+
+						<router-link v-if="!registered" to="/account/login">
+							<v-list-item>
+								<v-list-item-icon>
+									<v-icon>mdi-logout-variant</v-icon>
+								</v-list-item-icon>
+								<v-list-item-content>
+									<v-list-item-title>Log In</v-list-item-title>
+								</v-list-item-content>
+							</v-list-item>
+						</router-link>
+					</v-list>
+				</v-card>
+			</v-menu>
 
 		</v-app-bar>
 
-		<v-navigation-drawer v-model="drawer" temporary app >
+		<v-navigation-drawer v-model="drawer" temporary app>
 			<v-list nav dense>
 				<img src="../../public/img/logo.png" width="150px">
 				<br><br>
@@ -111,7 +159,7 @@
 </template>
 
 <script>
-//import jwtDecode from 'jwt-decode'
+import jwtDecode from 'jwt-decode';
 
 export default {
 	data: () => ({
@@ -122,27 +170,40 @@ export default {
 	watch: {
 		group() {
 			this.drawer = false
-		},
+		}
 	},
 
 	methods: {
 		toggleDarkTheme() {
 			this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
 		},
-		login() {
-
+		async logout() {
+			localStorage.removeItem('jwt');
+			localStorage.removeItem('refresh-token');
+			this.$store.commit('setRegistered', false)
+			window.location.reload();
 		}
+	},
+	mounted() {
+		let jwt = localStorage.getItem('jwt');
+		if (!jwt) return false;
+
+		this.$store.commit('setRegistered', true);
+
 	},
 	computed: {
 		registered() {
+			return this.$store.state.registered;
+		},
+		user() {
 			let jwt = localStorage.getItem('jwt');
 
-			if (jwt) {
-				return true;
-			} else {
-				return false;
-			}
-		},
+			if (!jwt) return false;
+
+			let user = jwtDecode(jwt);
+
+			return user;
+		}
 	}
 };
 </script>
