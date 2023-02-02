@@ -1,8 +1,11 @@
 import axios from 'axios'
 import jwtDecode from 'jwt-decode'
 
+// Ensure baseUrl has correct format (remove trailing / in this case)
+const baseURL = process.env.VUE_APP_DND_API_ENDPOINT.replace(/\/+$/, "");
+
 const axiosInstance = axios.create({
-	baseURL: process.env.VUE_APP_DND_API_ENDPOINT
+	baseURL: baseURL
 })
 
 axiosInstance.interceptors.request.use(async (config) => {
@@ -33,7 +36,7 @@ async function refreshToken() {
 	console.log('Refreshing access token');
 
 	const response = await axios
-		.post(process.env.VUE_APP_DND_API_ENDPOINT + '/users/refresh-token', {
+		.post(baseURL + '/users/refresh-token', {
 			refreshToken: localStorage.getItem('refresh_token')
 		});
 
