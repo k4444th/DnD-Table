@@ -5,20 +5,47 @@
 		</v-card-title>
 		<v-card-text>
 			<v-list subheader two-line>
-				<router-link v-for="campaign in campaigns" :key="campaign.id" :to="'/campaigns/id/' + campaign.id">
-					<v-list-item link>
-						<v-list-item-avatar color="primary">
-							{{ campaign.role == "dungeon_master" ? "DM" : "PC" }}
-						</v-list-item-avatar>
-						<v-list-item-content>
-							<v-list-item-title v-text="campaign.name"></v-list-item-title>
+				<v-list-item link v-for="campaign in campaigns" :key="campaign.id" :to="'/campaigns/id/' + campaign.id">
+					<v-list-item-avatar color="primary">
+						{{ campaign.role == "dungeon_master" ? "DM" : "PC" }}
+					</v-list-item-avatar>
 
-							<v-list-item-subtitle>
-								{{ new Date(campaign.created_at).toLocaleDateString() }}
-							</v-list-item-subtitle>
-						</v-list-item-content>
-					</v-list-item>
-				</router-link>
+					<v-list-item-content>
+						<v-list-item-title v-text="campaign.name"></v-list-item-title>
+						
+						<v-list-item-subtitle>
+							{{ new Date(campaign.created_at).toLocaleDateString() }}
+							•
+							{{ campaign.userCount }} Players
+						</v-list-item-subtitle>
+					</v-list-item-content>
+
+					<v-list-item-action v-if="campaign.role == 'dungeon_master'">
+						<v-btn icon @click.prevent="openDeleteCampaign(campaign.id)">
+							<v-icon color="grey lighten-1">mdi-delete-forever</v-icon>
+						</v-btn>
+					</v-list-item-action>
+				</v-list-item>
+
+				<v-dialog v-model="deleteDialog" max-width="300">
+					<v-card>
+						<v-toolbar color="primary" dark>Confirm deletion</v-toolbar>
+
+						<v-card-text>
+							<p>Do you really want to delete <b>{{ deleteCampaignDetails.name }}</b>?</p>
+							<p><b>This action can not be undone!</b></p>
+						</v-card-text>
+
+						<v-card-actions>
+							<v-btn text @click="deleteDialog = false">
+								Cancel
+							</v-btn>
+							<v-btn color="primary" text @click="deleteCampaign()">
+								Delete Permanently
+							</v-btn>
+						</v-card-actions>
+					</v-card>
+				</v-dialog>
 			</v-list>
 		</v-card-text>
 
@@ -137,7 +164,9 @@ export default {
 			joinCharacter: "",
 			joinVisible: false,
 			characterSeachLoading: true,
-			characterSearch: ""
+			characterSearch: "",
+			deleteDialog: false,
+			deleteCampaignDetails: {}
 		}
 	},
 	async mounted() {
@@ -191,6 +220,20 @@ export default {
 		async fetchCampaigns() {
 			const campainResponse = await this.$axios.get('/campaigns/my');
 			this.campaigns = campainResponse.data.campaigns;
+		},
+		async openDeleteCampaign(id) {
+			console.log(id);
+			this.deleteCampaignDetails = this.campaigns.find(x => x.id == id);
+			this.deleteDialog = true;
+		},
+		async deleteCampaign() {
+			const response = await this.$axios.delete('/campaigns/id/' + this.deleteCampaignDetails.id);
+
+			if (response.status == 200) {
+				this.deleteCampaignDetails = {};
+				this.deleteDialog = false;
+				this.fetchCampaigns();
+			}
 		}
 	},
 	watch: {
