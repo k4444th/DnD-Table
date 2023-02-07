@@ -86,6 +86,33 @@
 						</v-list-item>
 					</router-link>
 
+					<router-link to="/tv">
+						<v-list-item>
+							<v-list-item-icon>
+								<v-icon>mdi-television</v-icon>
+							</v-list-item-icon>
+							<v-list-item-content>TV</v-list-item-content>
+						</v-list-item>
+					</router-link>
+					
+					<router-link to="/player">
+						<v-list-item>
+							<v-list-item-icon>
+								<v-icon>mdi-account-plus-outline</v-icon>
+							</v-list-item-icon>
+							<v-list-item-content>Join</v-list-item-content>
+						</v-list-item>
+					</router-link>
+
+					<router-link to="/gamemaster">
+						<v-list-item>
+							<v-list-item-icon>
+								<v-icon>mdi-pencil-outline</v-icon>
+							</v-list-item-icon>
+							<v-list-item-content>Create</v-list-item-content>
+						</v-list-item>
+					</router-link>
+
 					<router-link to="/campaigns/my">
 						<v-list-item>
 							<v-list-item-icon>
@@ -95,12 +122,12 @@
 						</v-list-item>
 					</router-link>
 
-					<router-link to="/tv">
+					<router-link to="/admin">
 						<v-list-item>
 							<v-list-item-icon>
-								<v-icon>mdi-television</v-icon>
+								<v-icon>mdi-wrench</v-icon>
 							</v-list-item-icon>
-							<v-list-item-content>TV</v-list-item-content>
+							<v-list-item-content>Admin</v-list-item-content>
 						</v-list-item>
 					</router-link>
 
@@ -110,15 +137,6 @@
 								<v-icon>mdi-application-braces-outline</v-icon>
 							</v-list-item-icon>
 							<v-list-item-content>About</v-list-item-content>
-						</v-list-item>
-					</router-link>
-
-					<router-link to="/admin">
-						<v-list-item>
-							<v-list-item-icon>
-								<v-icon>mdi-wrench</v-icon>
-							</v-list-item-icon>
-							<v-list-item-content>Admin</v-list-item-content>
 						</v-list-item>
 					</router-link>
 
