@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<v-app-bar app color="primary" dark height="75">
-			<v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+			<v-app-bar-nav-icon @click.stop="() => {debugger; drawer = !drawer;}"></v-app-bar-nav-icon>
 			<v-spacer></v-spacer>
 			<router-link to="/">
 				<img src="../../public/img/logo_white.png" height="70">
@@ -10,7 +10,7 @@
 			<v-btn icon @click="toggleDarkTheme()">
 				<v-icon>mdi-theme-light-dark</v-icon>
 			</v-btn>
-			<v-menu :nudge-width="200" offset-x>
+			<v-menu :nudge-width="200">
 				<template v-slot:activator="{ on, attrs }">
 					<v-btn icon v-bind="attrs" v-on="on">
 						<v-avatar v-if="registered" color="secondary">
@@ -20,7 +20,7 @@
 					</v-btn>
 				</template>
 
-				<v-card>
+				<v-card >
 					<v-list v-if="registered">
 						<v-list-item>
 							<v-list-item-avatar color="primary">
@@ -211,5 +211,10 @@ export default {
 <style scoped>
 a {
 	text-decoration: none;
+}
+.v-menu__content {
+	top: 75px !important;
+	right: 0px !important;
+	left: auto !important;
 }
 </style>
